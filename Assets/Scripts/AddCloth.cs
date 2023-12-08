@@ -12,7 +12,7 @@ public class AddCloth : MonoBehaviour, IDataPersistence
     private static int offsetTshirtVert = 70;
     private int tshirtCounter = 2;
 
-    private List<Tuple<string,float,float,float,float>> wardrobe = new List<Tuple<string, float, float, float, float>>();
+    private List<Cloth> wardrobe = new List<Cloth>();
 
     public SpriteRenderer renderer;
 
@@ -23,9 +23,9 @@ public class AddCloth : MonoBehaviour, IDataPersistence
     public void LoadData(GameData data)
     {
         this.wardrobe = data.wardrobe;
-        foreach (Tuple<string,float,float,float,float> cloth in wardrobe)
+        foreach (Cloth cloth in wardrobe)
         {
-            loadCloth( cloth.Item1,cloth.Item2,cloth.Item3,cloth.Item4,cloth.Item5);
+            loadCloth( cloth.sprite,cloth.red,cloth.green,cloth.blue,cloth.albedo);
         }
     }
 
@@ -48,7 +48,7 @@ public class AddCloth : MonoBehaviour, IDataPersistence
         newImage.rectTransform.sizeDelta = new Vector2(55,70);
         newImage.color = renderer.color;
 
-        wardrobe.Add(new Tuple<string,float,float,float,float>(renderer.sprite.ToString(),renderer.color.r,renderer.color.g,renderer.color.b,renderer.color.a));
+        wardrobe.Add(new Cloth(renderer.sprite.ToString(),renderer.color.r,renderer.color.g,renderer.color.b,renderer.color.a));
 
         imageAddedToScene.transform.SetParent(parent.transform);
         newImage.rectTransform.localScale = new Vector3(1f,1f,1f);

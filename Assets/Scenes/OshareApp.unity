@@ -1216,7 +1216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0454e7c1ce87b748a2b94be61e754e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileName: clothes
+  fileName: clothes.json
 --- !u!4 &448803359
 Transform:
   m_ObjectHideFlags: 0

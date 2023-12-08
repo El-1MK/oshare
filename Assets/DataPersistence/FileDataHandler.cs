@@ -6,10 +6,10 @@ using System.IO;
 
 public class FileDataHandler
 {
-    private string dataDirPath = "";
-    private string dataFileName = "";
+    public string dataDirPath = "";
+    public string dataFileName = "";
 
-    public FileDataHandler(string dataDirPath, string dataFilename)
+    public FileDataHandler(string dataDirPath, string dataFileName)
     {
         this.dataDirPath = dataDirPath;
         this.dataFileName = dataFileName;
@@ -54,10 +54,13 @@ public class FileDataHandler
 
             //serialize the C# game data object into Json
             string dataToStore = JsonUtility.ToJson(data, true);
+            Debug.Log("Object to store "+data.wardrobe);
+            Debug.Log("JSONIfied Object to store "+dataToStore);
 
             //write the serialized data to the file
             using(FileStream stream = new FileStream(fullPath, FileMode.Create))
             {
+                Debug.Log("FilMode.Create passed "+fullPath);
                 using(StreamWriter writer = new StreamWriter(stream))
                 {
                     writer.Write(dataToStore);

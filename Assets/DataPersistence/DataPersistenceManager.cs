@@ -24,6 +24,7 @@ public class DataPersistenceManager : MonoBehaviour
     private void Start()
     {
         this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
+        Debug.Log(this.dataHandler);
         this.dataPersistenceObjects = FindAllDataPersistenceObjects();
         LoadGame();
     }
@@ -61,8 +62,6 @@ public class DataPersistenceManager : MonoBehaviour
         {
             dataPersistenceObj.SaveData(ref gameData);
         }
-
-            Debug.Log("Saved wardrobe : "+ gameData.wardrobe.Count);
 
         //save that data to a file using the data handler
         dataHandler.Save(gameData);
