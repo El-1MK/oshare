@@ -10,7 +10,7 @@ public class AddCloth : MonoBehaviour, IDataPersistence
     private static int rightBorder = 113;
     private static int offsetTshirtHoriz = 55;
     private static int offsetTshirtVert = 70;
-    private int tshirtCounter = 2;
+    public int tshirtCounter = 0;
 
     private List<Cloth> wardrobe = new List<Cloth>();
 
@@ -20,12 +20,15 @@ public class AddCloth : MonoBehaviour, IDataPersistence
 
     public GameObject parent;
 
+    public List<Sprite> availableClothes;
+
     public void LoadData(GameData data)
     {
         this.wardrobe = data.wardrobe;
-        foreach (Cloth cloth in wardrobe)
+        this.tshirtCounter = data.wardrobe.Count;
+        for(int i=0;i<data.wardrobe.Count;i++)
         {
-            loadCloth( cloth.sprite,cloth.red,cloth.green,cloth.blue,cloth.albedo);
+            loadCloth( wardrobe[i].sprite,wardrobe[i].red,wardrobe[i].green,wardrobe[i].blue,wardrobe[i].albedo,i);
         }
     }
 
@@ -37,7 +40,8 @@ public class AddCloth : MonoBehaviour, IDataPersistence
     public void addCloth()
     {
         int nbRow = tshirtCounter/4;
-        int nbTshirtRow = (240/(55*tshirtCounter));
+        int nbTshirtRow = 0;
+        if(tshirtCounter > 0) nbTshirtRow = (240/(55*tshirtCounter));
         float currentCursorVert = -42.5f - nbRow * offsetTshirtVert;
 
         float currentCursorHoriz = (tshirtCounter%4)*offsetTshirtHoriz;
@@ -72,18 +76,28 @@ public class AddCloth : MonoBehaviour, IDataPersistence
 
     }
 
-    public void loadCloth(string image,float red,float green,float blue,float albedo)
+    public void loadCloth(string image,float red,float green,float blue,float albedo,int index)
     {
-        int nbRow = tshirtCounter/4;
-        int nbTshirtRow = (240/(55*tshirtCounter));
+        Debug.Log("index tshirtCounter wardrobe.Count "+ index+" "+tshirtCounter+" "+wardrobe.Count);
+        int nbRow = (tshirtCounter-(wardrobe.Count - index))/4;
+        Debug.Log("index / nbRow"+ index +" "+nbRow);
+        int nbTshirtRow = 0;
+        if((tshirtCounter - (wardrobe.Count - index)) > 0 ) nbTshirtRow = (240/(55*(tshirtCounter - (wardrobe.Count - index))));
+        Debug.Log("index / nbTshirtSurRow"+ index +" "+nbTshirtRow);
         float currentCursorVert = -42.5f - nbRow * offsetTshirtVert;
 
-        float currentCursorHoriz = (tshirtCounter%4)*offsetTshirtHoriz;
+        float currentCursorHoriz = ((tshirtCounter - (wardrobe.Count - index))%4)*offsetTshirtHoriz;
 
         imageAddedToScene = new GameObject();
         Image newImage = imageAddedToScene.AddComponent<Image>();
-        newImage.sprite = renderer.sprite;
-        Debug.Log(image);
+        if(image.Contains("drawing"))newImage.sprite = availableClothes[0];
+        if(image.Contains("pocket"))newImage.sprite = availableClothes[3];
+        if(image.Contains("stripes"))newImage.sprite = availableClothes[1];
+        if(image.Contains("dots"))newImage.sprite = availableClothes[2];
+
+
+
+        
         newImage.rectTransform.sizeDelta = new Vector2(55,70);
         newImage.color = new Color(red,green,blue,albedo);
 
@@ -105,8 +119,6 @@ public class AddCloth : MonoBehaviour, IDataPersistence
            wardrobePanelRect.sizeDelta = new Vector2(wardrobePanelRect.rect.width,wardrobePanelRect.rect.height + 75);
             
         }
-        tshirtCounter++;
-
 
     }
 }
