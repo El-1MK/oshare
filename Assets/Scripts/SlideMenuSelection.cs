@@ -7,17 +7,14 @@ public class SlideMenuSelection : MonoBehaviour
 {
   private int currentItem;
 
-  private void SelectItem(int _index)
-  {
-    for (int i = 0; i < transform.childCount; i++)
-    {
-      transform.GetChild(i).gameObject.SetActive(i == _index);
-    }
-  }
-
   public void ChangeItem(int _change)
   {
+    int nbItems = transform.childCount;
+    transform.GetChild(currentItem).gameObject.SetActive(false);
     currentItem += _change;
-    SelectItem(currentItem);
+    Debug.Log(currentItem);
+    currentItem = (currentItem%nbItems + nbItems)%nbItems;
+    Debug.Log(currentItem);
+    transform.GetChild(currentItem).gameObject.SetActive(true);
   }
 }
