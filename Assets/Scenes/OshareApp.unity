@@ -674,7 +674,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: dots
+          m_StringArgument: check
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 382646982}
@@ -685,7 +685,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: tiles
+          m_StringArgument: check
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &134237926
@@ -707,7 +707,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5eb1e81dc6e441e408d85f7096f9771b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5117023f08989654bb00711054c1cc62, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1125,7 +1125,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 47730a27644593f4c9d87b513e7d5ac2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1317,12 +1317,41 @@ MonoBehaviour:
   shoesFloor: {fileID: 728073004}
   socksFloor: {fileID: 1214100920}
   availableClothes:
-  - {fileID: 21300000, guid: 9461e34fa382473468a7e85ace2422dc, type: 3}
-  - {fileID: 21300000, guid: 1d57283905453c64cb47227f31bcf6a7, type: 3}
-  - {fileID: 21300000, guid: 148b2af70c2bb804cb7c6cee5457a961, type: 3}
-  - {fileID: 21300000, guid: d0f9d6247d5880c4c96fdf4437926bf4, type: 3}
-  availablelegwear:
-  - {fileID: 21300000, guid: d1e01294aa5b24e479c5911e7aadb3f0, type: 3}
+  - {fileID: 21300000, guid: fbfa6f0134208374aa23eb81fdca79b2, type: 3}
+  - {fileID: 21300000, guid: 3f694b1d5328b5b4fb0c3662c43f0b0b, type: 3}
+  - {fileID: 21300000, guid: 1f992c3ef64499b42b84c8fd03b2966e, type: 3}
+  - {fileID: 21300000, guid: 3d6f089b900233b4eac22a2b1c9f20f7, type: 3}
+  - {fileID: 21300000, guid: c290f78c78d1cff45af8031e51f007b9, type: 3}
+  availableMarcels:
+  - {fileID: 21300000, guid: 94cddc6ce367c10458ab97871c76020f, type: 3}
+  - {fileID: 21300000, guid: cae9f78ee6e9a6d4696893bc8e4edc01, type: 3}
+  - {fileID: 21300000, guid: 50756269a1773dd48a7b7f912aa40f7c, type: 3}
+  - {fileID: 21300000, guid: 326955fa800baa7489eebe12275cdbf7, type: 3}
+  - {fileID: 21300000, guid: 2878f56659f82ed4aa567c681770d900, type: 3}
+  availableBlouses:
+  - {fileID: 21300000, guid: c46c5ec316c487942907ce9ff8e48e4d, type: 3}
+  - {fileID: 21300000, guid: ed624caf68ed8054da9e4c7b8c935875, type: 3}
+  - {fileID: 21300000, guid: bccbb6d0f397d47448866208f4aaedd1, type: 3}
+  - {fileID: 21300000, guid: 06853a9c79440b442811f03757083587, type: 3}
+  - {fileID: 21300000, guid: 8d127512d47fe7d4d9c796fb85f9343a, type: 3}
+  availablePants:
+  - {fileID: 21300000, guid: f709f20f7db26124da153c3698a1cb93, type: 3}
+  - {fileID: 21300000, guid: ffa3d81058e4e1148a3aee02de11d233, type: 3}
+  - {fileID: 21300000, guid: a094c98c38f90f44c8ddd510ae1182e7, type: 3}
+  - {fileID: 21300000, guid: 9e9604c05bbc88a40a6b12f2777c18a7, type: 3}
+  - {fileID: 21300000, guid: e1ed36b7a318f03498063cd9ab29862f, type: 3}
+  availableJogging:
+  - {fileID: 21300000, guid: bda1bdec54f751149ac04b27f4040578, type: 3}
+  - {fileID: 21300000, guid: 1946d97959f9aa84d946652529cd1588, type: 3}
+  - {fileID: 21300000, guid: 0bd3796ea0c66f941a47634c57d74b47, type: 3}
+  - {fileID: 21300000, guid: d7a94362e50f3b7469a5b3ffb9e8fd45, type: 3}
+  - {fileID: 21300000, guid: 540fb8b8c0672c2428118f894b6f3eac, type: 3}
+  availableSkirt:
+  - {fileID: 21300000, guid: ad853f5968ca36d4eb7f3b3c6a5549dc, type: 3}
+  - {fileID: 21300000, guid: e3624bae687e01b4fa378653fa7ca3cb, type: 3}
+  - {fileID: 21300000, guid: ef7cdf5bf5f30484b90a5f2835a8bd1b, type: 3}
+  - {fileID: 21300000, guid: a30d4e565e0bf484eb5e0a884851aa7e, type: 3}
+  - {fileID: 21300000, guid: e45511afe66d08144a44afe6b98bf1b5, type: 3}
   text: {fileID: 1029306181}
   categories:
   - top
@@ -1795,7 +1824,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: dots
+          m_StringArgument: dot
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 382646982}
@@ -1806,7 +1835,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: dots
+          m_StringArgument: dot
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &486854780
@@ -1828,7 +1857,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5eb1e81dc6e441e408d85f7096f9771b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 55ba8c70a04c592468878871344b8242, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2019,7 +2048,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: dots
+          m_StringArgument: flower
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 382646982}
@@ -2030,7 +2059,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: flowers
+          m_StringArgument: flower
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &554268827
@@ -2052,7 +2081,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5eb1e81dc6e441e408d85f7096f9771b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d570a748fd9c12e4cb3f6761ccec93e9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2100,10 +2129,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clothes:
-  - {fileID: 21300000, guid: 9461e34fa382473468a7e85ace2422dc, type: 3}
-  - {fileID: 21300000, guid: d1e01294aa5b24e479c5911e7aadb3f0, type: 3}
+  - {fileID: 21300000, guid: fbfa6f0134208374aa23eb81fdca79b2, type: 3}
+  - {fileID: 21300000, guid: 94cddc6ce367c10458ab97871c76020f, type: 3}
+  - {fileID: 21300000, guid: c46c5ec316c487942907ce9ff8e48e4d, type: 3}
+  - {fileID: 21300000, guid: f709f20f7db26124da153c3698a1cb93, type: 3}
+  - {fileID: 21300000, guid: bda1bdec54f751149ac04b27f4040578, type: 3}
+  - {fileID: 21300000, guid: ad853f5968ca36d4eb7f3b3c6a5549dc, type: 3}
   renderer: {fileID: 1730789667}
-  NBMAX_CLOTHES: 2
+  NBMAX_CLOTHES: 6
 --- !u!4 &604432100
 Transform:
   m_ObjectHideFlags: 0
@@ -2929,7 +2962,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f457495f1c7b78d4aac5d39ad2b0c252, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2d6b0d219887dd94b94fc554aafd68d5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3825,8 +3858,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 2.35, y: -0}
-  m_SizeDelta: {x: 224.43329, y: 69.75475}
+  m_AnchoredPosition: {x: 2.35, y: -18.657}
+  m_SizeDelta: {x: 224.43329, y: 51.09823}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1254511520
 MonoBehaviour:
@@ -4818,12 +4851,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab8bfcf8809266b408399a3b62b621f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: t-shirt
   spriteToChange: {fileID: 1730789665}
   renderer: {fileID: 1730789667}
-  plainSprite: {fileID: 21300000, guid: 9461e34fa382473468a7e85ace2422dc, type: 3}
-  horizStripSprite: {fileID: 21300000, guid: 1d57283905453c64cb47227f31bcf6a7, type: 3}
-  dotsSprite: {fileID: 21300000, guid: 148b2af70c2bb804cb7c6cee5457a961, type: 3}
+  tshirts:
+  - {fileID: 21300000, guid: fbfa6f0134208374aa23eb81fdca79b2, type: 3}
+  - {fileID: 21300000, guid: 3f694b1d5328b5b4fb0c3662c43f0b0b, type: 3}
+  - {fileID: 21300000, guid: 1f992c3ef64499b42b84c8fd03b2966e, type: 3}
+  - {fileID: 21300000, guid: 3d6f089b900233b4eac22a2b1c9f20f7, type: 3}
+  - {fileID: 21300000, guid: c290f78c78d1cff45af8031e51f007b9, type: 3}
+  marcels:
+  - {fileID: 21300000, guid: 94cddc6ce367c10458ab97871c76020f, type: 3}
+  - {fileID: 21300000, guid: cae9f78ee6e9a6d4696893bc8e4edc01, type: 3}
+  - {fileID: 21300000, guid: 50756269a1773dd48a7b7f912aa40f7c, type: 3}
+  - {fileID: 21300000, guid: 326955fa800baa7489eebe12275cdbf7, type: 3}
+  - {fileID: 21300000, guid: 2878f56659f82ed4aa567c681770d900, type: 3}
+  blouses:
+  - {fileID: 21300000, guid: c46c5ec316c487942907ce9ff8e48e4d, type: 3}
+  - {fileID: 21300000, guid: ed624caf68ed8054da9e4c7b8c935875, type: 3}
+  - {fileID: 21300000, guid: bccbb6d0f397d47448866208f4aaedd1, type: 3}
+  - {fileID: 21300000, guid: 06853a9c79440b442811f03757083587, type: 3}
+  - {fileID: 21300000, guid: 8d127512d47fe7d4d9c796fb85f9343a, type: 3}
+  pants:
+  - {fileID: 21300000, guid: f709f20f7db26124da153c3698a1cb93, type: 3}
+  - {fileID: 21300000, guid: ffa3d81058e4e1148a3aee02de11d233, type: 3}
+  - {fileID: 21300000, guid: a094c98c38f90f44c8ddd510ae1182e7, type: 3}
+  - {fileID: 21300000, guid: 9e9604c05bbc88a40a6b12f2777c18a7, type: 3}
+  - {fileID: 21300000, guid: e1ed36b7a318f03498063cd9ab29862f, type: 3}
+  jogging:
+  - {fileID: 21300000, guid: bda1bdec54f751149ac04b27f4040578, type: 3}
+  - {fileID: 21300000, guid: 1946d97959f9aa84d946652529cd1588, type: 3}
+  - {fileID: 21300000, guid: 0bd3796ea0c66f941a47634c57d74b47, type: 3}
+  - {fileID: 21300000, guid: d7a94362e50f3b7469a5b3ffb9e8fd45, type: 3}
+  - {fileID: 21300000, guid: 540fb8b8c0672c2428118f894b6f3eac, type: 3}
+  skirt:
+  - {fileID: 21300000, guid: ad853f5968ca36d4eb7f3b3c6a5549dc, type: 3}
+  - {fileID: 21300000, guid: e3624bae687e01b4fa378653fa7ca3cb, type: 3}
+  - {fileID: 21300000, guid: ef7cdf5bf5f30484b90a5f2835a8bd1b, type: 3}
+  - {fileID: 21300000, guid: a30d4e565e0bf484eb5e0a884851aa7e, type: 3}
+  - {fileID: 21300000, guid: e45511afe66d08144a44afe6b98bf1b5, type: 3}
 --- !u!4 &1563569629
 Transform:
   m_ObjectHideFlags: 0
@@ -5566,8 +5631,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1730789665}
   m_LocalRotation: {x: -0, y: -0, z: 0.0006905909, w: 0.99999976}
-  m_LocalPosition: {x: -50, y: 33, z: -3600}
-  m_LocalScale: {x: 17.077747, y: 17.077747, z: 17.077747}
+  m_LocalPosition: {x: -50, y: 9, z: -3600}
+  m_LocalScale: {x: 6, y: 6, z: 6}
   m_Children: []
   m_Father: {fileID: 811167155}
   m_RootOrder: 3
@@ -5611,7 +5676,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9461e34fa382473468a7e85ace2422dc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fbfa6f0134208374aa23eb81fdca79b2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5712,7 +5777,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: horiz-stripes
+          m_StringArgument: stripe
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 382646982}
@@ -5723,7 +5788,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: stripes
+          m_StringArgument: stripe
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1753020499
@@ -5745,7 +5810,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4b13b00d7f53b1f44a901ee85ee00ba2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 20347ad21bb6671419e4a62ea02c6e18, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

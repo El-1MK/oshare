@@ -10,7 +10,7 @@ public class ChangeSelectedCloth : MonoBehaviour
 
     private int index = 0;
 
-    public int NBMAX_CLOTHES = 2;
+    public int NBMAX_CLOTHES = 6;
 
     private void Start()
     {
