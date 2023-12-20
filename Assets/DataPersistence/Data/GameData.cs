@@ -24,12 +24,17 @@ public class Cloth
     public float blue;
     public float albedo;
 
-    public Cloth(string sprite, float r, float g, float b, float a)
+    public string category;
+    public string pattern;
+
+    public Cloth(string sprite, float r, float g, float b, float a, string categ, string patt)
     {
         this.sprite = sprite;
         red = r;
         green = g;
         blue = b;
         albedo = a;
+        category = categ;
+        pattern = patt;
     }
 }
