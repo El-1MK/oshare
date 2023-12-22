@@ -15,6 +15,13 @@ public class ChangePattern : MonoBehaviour
     public Sprite[] pants;
     public Sprite[] jogging;
     public Sprite[] skirt;
+    public Sprite[] blazer;
+    public Sprite[] coat;
+    public Sprite[] sneaker;
+    public Sprite[] boots;
+    public Sprite[] socks;
+    public Sprite[] hat;
+    public Sprite[] cap;
 
 
     public void changePattern(string pattern)
@@ -99,6 +106,32 @@ public class ChangePattern : MonoBehaviour
                 renderer.sprite = skirt[3];
             }else if(pattern.Equals("flower")){
                 renderer.sprite = skirt[4];
+            }
+        }
+        if(renderer.sprite.ToString().Contains("blazer")){
+            if(pattern.Equals("plain")){
+                renderer.sprite = blazer[0];
+            }else if(pattern.Equals("stripe")){
+                renderer.sprite = blazer[1];
+            }else if(pattern.Equals("dot")){
+                renderer.sprite = blazer[2];
+            }else if(pattern.Equals("check")){
+                renderer.sprite = blazer[3];
+            }else if(pattern.Equals("flower")){
+                renderer.sprite = blazer[4];
+            }
+        }
+        if(renderer.sprite.ToString().Contains("coat")){
+            if(pattern.Equals("plain")){
+                renderer.sprite = coat[0];
+            }else if(pattern.Equals("stripe")){
+                renderer.sprite = coat[1];
+            }else if(pattern.Equals("dot")){
+                renderer.sprite = coat[2];
+            }else if(pattern.Equals("check")){
+                renderer.sprite = coat[3];
+            }else if(pattern.Equals("flower")){
+                renderer.sprite = coat[4];
             }
         }
     }
