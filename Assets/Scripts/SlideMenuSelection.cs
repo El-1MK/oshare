@@ -6,24 +6,11 @@ using UnityEngine.UI;
 public class SlideMenuSelection : MonoBehaviour
 {
     private int currentItem;
-    // private GameObject prefab;
-    // private List<Cloth> wardrobe = new List<Cloth>();
-    //
-    // void Start()
-    // {
-    //     this.wardrobe = data.wardrobe;
-    //     this.tshirtCounter = data.wardrobe.Count;
-    //     for(int i=0; i<data.wardrobe.Count; i++)
-    //     {
-    //         //loadCloth( wardrobe[i].sprite,wardrobe[i].red,wardrobe[i].green,wardrobe[i].blue,wardrobe[i].albedo,i);
-    //         imageAddedToScene = Instantiate(prefab, this);
-    //         Image newImage = imageAddedToScene.AddComponent<Image>();
-    //         if(image.Contains("drawing"))newImage.sprite = availableClothes[0];
-    //         if(image.Contains("pocket"))newImage.sprite = availableClothes[3];
-    //         if(image.Contains("stripes"))newImage.sprite = availableClothes[1];
-    //         if(image.Contains("dots"))newImage.sprite = availableClothes[2];
-    //     }
-    // }
+
+    void Start()
+    {
+        this.Reset();
+    }
 
     public void ChangeItem(int _change)
     {
@@ -32,6 +19,24 @@ public class SlideMenuSelection : MonoBehaviour
         currentItem += _change;
         currentItem = (currentItem%nbItems + nbItems)%nbItems;
         transform.GetChild(currentItem).gameObject.SetActive(true);
+    }
+
+    public void Reset()
+    {
+        foreach (Transform child in transform) child.gameObject.SetActive(false);
+        if (transform.childCount > 0) transform.GetChild(0).gameObject.SetActive(true);
+        Debug.Log("Selector reset with " + transform.childCount.ToString() + " children");
+    }
+
+    public void CenterChildren()
+    {
+        foreach (Transform child in transform)
+        {
+            RectTransform rect = child.GetComponent<RectTransform>();
+            rect.anchorMin = new Vector2(0.5f, 0.5f);
+            rect.anchorMax = new Vector2(0.5f, 0.5f);
+            child.localPosition = new Vector3(0, 0, 0);
+        }
     }
 }
 
