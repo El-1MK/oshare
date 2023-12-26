@@ -4500,7 +4500,7 @@ GameObject:
   - component: {fileID: 1472031665}
   - component: {fileID: 1472031664}
   m_Layer: 5
-  m_Name: PatternText (1)
+  m_Name: ExtraText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
