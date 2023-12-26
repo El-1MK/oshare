@@ -25,11 +25,11 @@ public class ColorPickerRaw : MonoBehaviour
     void Update()
     {
         ColorTexture = GetComponent<RawImage>().mainTexture as Texture2D;
-        if(RectTransformUtility.RectangleContainsScreenPoint(Rect, Input.mousePosition, Camera.main))
+        if(RectTransformUtility.RectangleContainsScreenPoint(Rect, Input.mousePosition, null))
         {
 
         Vector2 delta;
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(Rect, Input.mousePosition, Camera.main, out delta);
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(Rect, Input.mousePosition, null, out delta);
         //Overlay specs
 
         string debug = "mousePosition"+Input.mousePosition;
@@ -50,8 +50,6 @@ public class ColorPickerRaw : MonoBehaviour
 
         Color color = ColorTexture.GetPixel(texX,texY);
 
-        DebugText.color = color;
-        DebugText.text = debug;
 
         OnColorPreview?.Invoke(color);
 

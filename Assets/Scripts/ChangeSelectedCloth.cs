@@ -44,29 +44,29 @@ public class ChangeSelectedCloth : MonoBehaviour
     {
         RectTransform rect = image.GetComponent<RectTransform>();
         if(image.sprite.ToString().Contains("pants") ||image.sprite.ToString().Contains("jogging")){
-            rect.sizeDelta = new Vector2(66,155);
-            image.transform.localPosition = new Vector3(-46f,44f,0f);
+            rect.sizeDelta = new Vector2(690,1525);
+            image.transform.localPosition = new Vector3(-720f,470f,0f);
         }else if(image.sprite.ToString().Contains("tshirt") ||image.sprite.ToString().Contains("marcel")){
-            rect.sizeDelta = new Vector2(130,155);
-            image.transform.localPosition = new Vector3(-46f,16f,0f);
+            rect.sizeDelta = new Vector2(1230,1342);
+            image.transform.localPosition = new Vector3(-960f,160f,0f);
         }else if(image.sprite.ToString().Contains("blouse")){
-            rect.sizeDelta = new Vector2(130,155);
-            image.transform.localPosition = new Vector3(-46f,44f,0f);
+            rect.sizeDelta = new Vector2(1226,1300);
+            image.transform.localPosition = new Vector3(-960f,430f,0f);
         }else if(image.sprite.ToString().Contains("skirt")){
-            rect.sizeDelta = new Vector2(66,77);
-            image.transform.localPosition = new Vector3(-46f,22f,0f);
+            rect.sizeDelta = new Vector2(690,600);
+            image.transform.localPosition = new Vector3(-720f,280f,0f);
         }else if( image.sprite.ToString().Contains("blazer")){
-            rect.sizeDelta = new Vector2(107,160);
-            image.transform.localPosition = new Vector3(-48f,16f,0f);
+            rect.sizeDelta = new Vector2(1020,1367);
+            image.transform.localPosition = new Vector3(-880f,300f,0f);
         }else if( image.sprite.ToString().Contains("coat")){
-            rect.sizeDelta = new Vector2(107,160);
-            image.transform.localPosition = new Vector3(-48f,47f,0f);
+            rect.sizeDelta = new Vector2(940,1220);
+            image.transform.localPosition = new Vector3(-840f,490f,0f);
         }else if(image.sprite.ToString().Contains("boot") ||image.sprite.ToString().Contains("sneaker")||image.sprite.ToString().Contains("sock")){
-            rect.sizeDelta = new Vector2(107,45);
-            image.transform.localPosition = new Vector3(-46f,16f,0f);
+            rect.sizeDelta = new Vector2(870,357);
+            image.transform.localPosition = new Vector3(-805f,320f,0f);
         }else if(image.sprite.ToString().Contains("cap") ||image.sprite.ToString().Contains("hat")||image.sprite.ToString().Contains("necklace")||image.sprite.ToString().Contains("glasses")){
-            rect.sizeDelta = new Vector2(107,67);
-            image.transform.localPosition = new Vector3(-46f,27f,0f);
+            rect.sizeDelta = new Vector2(630,341);
+            image.transform.localPosition = new Vector3(-700f,322f,0f);
         }
     }
 }

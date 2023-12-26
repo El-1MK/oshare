@@ -9,12 +9,10 @@ using TMPro;
 public class AddCloth : MonoBehaviour, IDataPersistence
 {
 
-    private static int leftBorder = -113;
-    private static int rightBorder = 113;
-    private static int offsettopHoriz = 77;
-    private static int offsettopVert = 90;
-    private static int offsetlegwearHoriz = 69;
-    private static int offsetlegwearVert = 90;
+    private static int offsettopHoriz = 550;
+    private static int offsettopVert = 600;
+    private static int offsetlegwearHoriz = 330;
+    private static int offsetlegwearVert = 750;
     private static int offsetouterwearHoriz = 69;
     private static int offsetouterwearVert = 100;
     private static int offsetshoesHoriz = 73;
@@ -140,18 +138,15 @@ public class AddCloth : MonoBehaviour, IDataPersistence
         if(imageCurrent.sprite.ToString().Contains("tshirt") || imageCurrent.sprite.ToString().Contains("marcel") || imageCurrent.sprite.ToString().Contains("blouse")){
         int nbRow = topCounter/3;
 
-        float currentCursorVert = -43f - nbRow * offsettopVert;
+        float currentCursorVert = -nbRow * offsettopVert;
 
-        float currentCursorHoriz = 35f +(topCounter%3)*offsettopHoriz;
+        float currentCursorHoriz = 54f +(topCounter%3)*(offsettopHoriz+54f);
 
         imageAddedToScene = new GameObject();
         Image newImage = imageAddedToScene.AddComponent<Image>();
         newImage.sprite = imageCurrent.sprite;
-        if(imageCurrent.sprite.ToString().Contains("blouse")){
-            newImage.rectTransform.sizeDelta = new Vector2(63,69);
-        }else{
-            newImage.rectTransform.sizeDelta = new Vector2(80,87);
-        }
+
+        newImage.rectTransform.sizeDelta = new Vector2(550,600);
         newImage.color = imageCurrent.color;
 
         wardrobe.Add(new Cloth(imageCurrent.sprite.ToString(),imageCurrent.color.r,imageCurrent.color.g,imageCurrent.color.b,imageCurrent.color.a,"top",currentPattern));
@@ -161,34 +156,34 @@ public class AddCloth : MonoBehaviour, IDataPersistence
          newImage.rectTransform.localPosition = new Vector3(currentCursorHoriz,currentCursorVert,0);
         newImage.rectTransform.anchorMin = new Vector2(0,1);
         newImage.rectTransform.anchorMax = new Vector2(0,1);
-        newImage.rectTransform.pivot = new Vector2(0.5f,0.5f);
+        newImage.rectTransform.pivot = new Vector2(0f,1f);
         newImage.rectTransform.localPosition = new Vector3(newImage.rectTransform.localPosition.x,currentCursorVert,0);
 
 
         if(topCounter%3 == 0){
             RectTransform topPanelRect = imageAddedToScene.transform.parent.gameObject.GetComponent<RectTransform>();
-            topPanelRect.sizeDelta = new Vector2(topPanelRect.rect.width,topPanelRect.rect.height + 98);
+            topPanelRect.sizeDelta = new Vector2(topPanelRect.rect.width,topPanelRect.rect.height + 700);
            // topPanelRect.localPosition = new Vector3(topPanelRect.anchoredPosition.x,topPanelRect.anchoredPosition.y + 75,0 );
            RectTransform wardrobePanelRect = imageAddedToScene.transform.parent.gameObject.transform.parent.gameObject.GetComponent<RectTransform>();
-           wardrobePanelRect.sizeDelta = new Vector2(wardrobePanelRect.rect.width,wardrobePanelRect.rect.height + 98);
-           topHeight += 98;
+           wardrobePanelRect.sizeDelta = new Vector2(wardrobePanelRect.rect.width,wardrobePanelRect.rect.height + 700);
+           topHeight += 700;
             
         }
         topCounter++;
         }else if(imageCurrent.sprite.ToString().Contains("pants") || imageCurrent.sprite.ToString().Contains("jogging") || imageCurrent.sprite.ToString().Contains("skirt")){
             int nbRow = legwearCounter/3;
 
-            float currentCursorVert = -45f - nbRow * offsetlegwearVert;
+            float currentCursorVert = -50f - nbRow * offsetlegwearVert;
 
-            float currentCursorHoriz = 40f + (legwearCounter%3)*offsetlegwearHoriz;
+            float currentCursorHoriz = 186f + (legwearCounter%3)*(offsetlegwearHoriz+186f);
 
             imageAddedToScene = new GameObject();
             Image newImage = imageAddedToScene.AddComponent<Image>();
             newImage.sprite = imageCurrent.sprite;
             if(imageCurrent.sprite.ToString().Contains("pants") ||imageCurrent.sprite.ToString().Contains("jogging") ){
-            newImage.rectTransform.sizeDelta = new Vector2(38,80);
+            newImage.rectTransform.sizeDelta = new Vector2(330,700);
             }else{
-                newImage.rectTransform.sizeDelta = new Vector2(47,65);
+                newImage.rectTransform.sizeDelta = new Vector2(330,270);
             }
             newImage.color = imageCurrent.color;
 
@@ -199,17 +194,21 @@ public class AddCloth : MonoBehaviour, IDataPersistence
             newImage.rectTransform.localPosition = new Vector3(currentCursorHoriz,currentCursorVert,0);
             newImage.rectTransform.anchorMin = new Vector2(0,1);
             newImage.rectTransform.anchorMax = new Vector2(0,1);
-            newImage.rectTransform.pivot = new Vector2(0.5f,0.5f);
+            newImage.rectTransform.pivot = new Vector2(0f,1f);
+            if(imageCurrent.sprite.ToString().Contains("pants") ||imageCurrent.sprite.ToString().Contains("jogging") ){
             newImage.rectTransform.localPosition = new Vector3(newImage.rectTransform.localPosition.x,currentCursorVert,0);
+            }else{
+                newImage.rectTransform.localPosition = new Vector3(newImage.rectTransform.localPosition.x,currentCursorVert-150f,0);
+            }
 
 
             if(legwearCounter%3 == 0){
                 RectTransform legwearPanelRect = imageAddedToScene.transform.parent.gameObject.GetComponent<RectTransform>();
-                legwearPanelRect.sizeDelta = new Vector2(legwearPanelRect.rect.width,legwearPanelRect.rect.height + 83);
+                legwearPanelRect.sizeDelta = new Vector2(legwearPanelRect.rect.width,legwearPanelRect.rect.height + 800);
                // topPanelRect.localPosition = new Vector3(topPanelRect.anchoredPosition.x,topPanelRect.anchoredPositon.y + 75,0 );
                RectTransform wardrobePanelRect = imageAddedToScene.transform.parent.gameObject.transform.parent.gameObject.GetComponent<RectTransform>();
-               wardrobePanelRect.sizeDelta = new Vector2(wardrobePanelRect.rect.width,wardrobePanelRect.rect.height + 83);
-                legwearHeight+=83;
+               wardrobePanelRect.sizeDelta = new Vector2(wardrobePanelRect.rect.width,wardrobePanelRect.rect.height + 800);
+                legwearHeight+=800;
             }
             legwearCounter++;
         }else if(imageCurrent.sprite.ToString().Contains("blazer") || imageCurrent.sprite.ToString().Contains("coat")){
@@ -233,7 +232,7 @@ public class AddCloth : MonoBehaviour, IDataPersistence
             newImage.rectTransform.localPosition = new Vector3(currentCursorHoriz,currentCursorVert,0);
             newImage.rectTransform.anchorMin = new Vector2(0,1);
             newImage.rectTransform.anchorMax = new Vector2(0,1);
-            newImage.rectTransform.pivot = new Vector2(0.5f,0.5f);
+            newImage.rectTransform.pivot = new Vector2(0f,1f);
             newImage.rectTransform.localPosition = new Vector3(newImage.rectTransform.localPosition.x,currentCursorVert,0);
 
 
@@ -268,7 +267,7 @@ public class AddCloth : MonoBehaviour, IDataPersistence
             newImage.rectTransform.localPosition = new Vector3(currentCursorHoriz,currentCursorVert,0);
             newImage.rectTransform.anchorMin = new Vector2(0,1);
             newImage.rectTransform.anchorMax = new Vector2(0,1);
-            newImage.rectTransform.pivot = new Vector2(0.5f,0.5f);
+            newImage.rectTransform.pivot = new Vector2(0f,1f);
             newImage.rectTransform.localPosition = new Vector3(newImage.rectTransform.localPosition.x,currentCursorVert,0);
 
 
@@ -303,7 +302,7 @@ public class AddCloth : MonoBehaviour, IDataPersistence
             newImage.rectTransform.localPosition = new Vector3(currentCursorHoriz,currentCursorVert,0);
             newImage.rectTransform.anchorMin = new Vector2(0,1);
             newImage.rectTransform.anchorMax = new Vector2(0,1);
-            newImage.rectTransform.pivot = new Vector2(0.5f,0.5f);
+            newImage.rectTransform.pivot = new Vector2(0f,1f);
             newImage.rectTransform.localPosition = new Vector3(newImage.rectTransform.localPosition.x,currentCursorVert,0);
 
 
@@ -338,7 +337,7 @@ public class AddCloth : MonoBehaviour, IDataPersistence
             newImage.rectTransform.localPosition = new Vector3(currentCursorHoriz,currentCursorVert,0);
             newImage.rectTransform.anchorMin = new Vector2(0,1);
             newImage.rectTransform.anchorMax = new Vector2(0,1);
-            newImage.rectTransform.pivot = new Vector2(0.5f,0.5f);
+            newImage.rectTransform.pivot = new Vector2(0f,1f);
             newImage.rectTransform.localPosition = new Vector3(newImage.rectTransform.localPosition.x,currentCursorVert,0);
 
 
@@ -377,7 +376,7 @@ public class AddCloth : MonoBehaviour, IDataPersistence
             newImage.rectTransform.localPosition = new Vector3(currentCursorHoriz,currentCursorVert,0);
             newImage.rectTransform.anchorMin = new Vector2(0,1);
             newImage.rectTransform.anchorMax = new Vector2(0,1);
-            newImage.rectTransform.pivot = new Vector2(0.5f,0.5f);
+            newImage.rectTransform.pivot = new Vector2(0f,1f);
             newImage.rectTransform.localPosition = new Vector3(newImage.rectTransform.localPosition.x,currentCursorVert,0);
 
 
@@ -398,9 +397,9 @@ public class AddCloth : MonoBehaviour, IDataPersistence
         if(category == "top"){
         int nbRow = (topCounter-(topCounter - index))/3;
 
-        float currentCursorVert = -43f - nbRow * offsettopVert;
+        float currentCursorVert = -nbRow * offsettopVert;
 
-        float currentCursorHoriz = 35f + ((topCounter - (topCounter - index))%3)*offsettopHoriz;
+        float currentCursorHoriz = 54f + ((topCounter - (topCounter - index))%3)*(offsettopHoriz+54f);
 
         imageAddedToScene = new GameObject();
         Image newImage = imageAddedToScene.AddComponent<Image>();
@@ -426,12 +425,8 @@ public class AddCloth : MonoBehaviour, IDataPersistence
 
 
 
-        if(image.Contains("blouse")){
-            newImage.rectTransform.sizeDelta = new Vector2(63,69);
-        }else{
-            newImage.rectTransform.sizeDelta = new Vector2(80,87);
-        }
-        newImage.rectTransform.sizeDelta = new Vector2(80,87);
+
+        newImage.rectTransform.sizeDelta = new Vector2(550,600);
         newImage.color = new Color(red,green,blue,albedo);
 
 
@@ -440,26 +435,26 @@ public class AddCloth : MonoBehaviour, IDataPersistence
          newImage.rectTransform.localPosition = new Vector3(currentCursorHoriz,currentCursorVert,0);
         newImage.rectTransform.anchorMin = new Vector2(0,1);
         newImage.rectTransform.anchorMax = new Vector2(0,1);
-        newImage.rectTransform.pivot = new Vector2(0.5f,0.5f);
+        newImage.rectTransform.pivot = new Vector2(0f,1f);
         newImage.rectTransform.localPosition = new Vector3(newImage.rectTransform.localPosition.x,currentCursorVert,0);
 
 
          if(index > 0 && index%3==0){
             RectTransform topPanelRect = imageAddedToScene.transform.parent.gameObject.GetComponent<RectTransform>();
-            topPanelRect.sizeDelta = new Vector2(topPanelRect.rect.width,topPanelRect.rect.height + 98);
+            topPanelRect.sizeDelta = new Vector2(topPanelRect.rect.width,topPanelRect.rect.height + 700);
            // topPanelRect.localPosition = new Vector3(topPanelRect.anchoredPosition.x,topPanelRect.anchoredPosition.y + 75,0 );
            RectTransform wardrobePanelRect = imageAddedToScene.transform.parent.gameObject.transform.parent.gameObject.GetComponent<RectTransform>();
-           wardrobePanelRect.sizeDelta = new Vector2(wardrobePanelRect.rect.width,wardrobePanelRect.rect.height + 98);
-           topHeight = topPanelRect.rect.height;
+           wardrobePanelRect.sizeDelta = new Vector2(wardrobePanelRect.rect.width,wardrobePanelRect.rect.height + 700);
+           topHeight = wardrobePanelRect.rect.height;
             
         }
         }else if(category == "legwear"){
         int nbRow = (legwearCounter-(legwearCounter - index))/3;
         int nblegwearRow = 0;
         if((legwearCounter - (legwearCounter - index)) > 0 ) nblegwearRow = (240/(54*(legwearCounter - (legwearCounter - index))));
-        float currentCursorVert = -45f - nbRow * offsetlegwearVert;
+        float currentCursorVert = -50f - nbRow * offsetlegwearVert;
 
-        float currentCursorHoriz = 40f + ((legwearCounter - (legwearCounter - index))%3)*offsetlegwearHoriz;
+        float currentCursorHoriz = 186f + ((legwearCounter - (legwearCounter - index))%3)*(offsetlegwearHoriz+186f);
 
         imageAddedToScene = new GameObject();
         Image newImage = imageAddedToScene.AddComponent<Image>();
@@ -487,9 +482,9 @@ public class AddCloth : MonoBehaviour, IDataPersistence
 
         
         if(image.Contains("pants") ||image.Contains("jogging") ){
-            newImage.rectTransform.sizeDelta = new Vector2(38,80);
+            newImage.rectTransform.sizeDelta = new Vector2(330,700);
             }else{
-                newImage.rectTransform.sizeDelta = new Vector2(47,65);
+                newImage.rectTransform.sizeDelta = new Vector2(330,700);
             }
         newImage.color = new Color(red,green,blue,albedo);
 
@@ -499,14 +494,18 @@ public class AddCloth : MonoBehaviour, IDataPersistence
         newImage.rectTransform.localPosition = new Vector3(currentCursorHoriz,currentCursorVert,0);
         newImage.rectTransform.anchorMin = new Vector2(0,1);
         newImage.rectTransform.anchorMax = new Vector2(0,1);
-        newImage.rectTransform.pivot = new Vector2(0.5f,0.5f);
-        newImage.rectTransform.localPosition = new Vector3(newImage.rectTransform.localPosition.x,currentCursorVert,0);
+        newImage.rectTransform.pivot = new Vector2(0f,1f);
+        if(image.Contains("pants") ||image.Contains("jogging") ){
+            newImage.rectTransform.localPosition = new Vector3(newImage.rectTransform.localPosition.x,currentCursorVert,0);
+            }else{
+                newImage.rectTransform.localPosition = new Vector3(newImage.rectTransform.localPosition.x,currentCursorVert-150f,0);
+            }
 
         
         if(index > 0 && index%3==0){
 
             RectTransform legwearPanelRect = imageAddedToScene.transform.parent.gameObject.GetComponent<RectTransform>();
-            legwearPanelRect.sizeDelta = new Vector2(legwearPanelRect.rect.width,legwearPanelRect.rect.height + 83);
+            legwearPanelRect.sizeDelta = new Vector2(legwearPanelRect.rect.width,legwearPanelRect.rect.height + 800);
             legwearHeight = legwearPanelRect.rect.height;            
         }
     }else if(category == "outerwear"){
@@ -544,7 +543,7 @@ public class AddCloth : MonoBehaviour, IDataPersistence
         newImage.rectTransform.localPosition = new Vector3(currentCursorHoriz,currentCursorVert,0);
         newImage.rectTransform.anchorMin = new Vector2(0,1);
         newImage.rectTransform.anchorMax = new Vector2(0,1);
-        newImage.rectTransform.pivot = new Vector2(0.5f,0.5f);
+        newImage.rectTransform.pivot = new Vector2(0f,1f);
         newImage.rectTransform.localPosition = new Vector3(newImage.rectTransform.localPosition.x,currentCursorVert,0);
 
         
@@ -589,7 +588,7 @@ public class AddCloth : MonoBehaviour, IDataPersistence
         newImage.rectTransform.localPosition = new Vector3(currentCursorHoriz,currentCursorVert,0);
         newImage.rectTransform.anchorMin = new Vector2(0,1);
         newImage.rectTransform.anchorMax = new Vector2(0,1);
-        newImage.rectTransform.pivot = new Vector2(0.5f,0.5f);
+        newImage.rectTransform.pivot = new Vector2(0f,1f);
         newImage.rectTransform.localPosition = new Vector3(newImage.rectTransform.localPosition.x,currentCursorVert,0);
 
         
@@ -627,7 +626,7 @@ public class AddCloth : MonoBehaviour, IDataPersistence
         newImage.rectTransform.localPosition = new Vector3(currentCursorHoriz,currentCursorVert,0);
         newImage.rectTransform.anchorMin = new Vector2(0,1);
         newImage.rectTransform.anchorMax = new Vector2(0,1);
-        newImage.rectTransform.pivot = new Vector2(0.5f,0.5f);
+        newImage.rectTransform.pivot = new Vector2(0f,1f);
         newImage.rectTransform.localPosition = new Vector3(newImage.rectTransform.localPosition.x,currentCursorVert,0);
 
         
@@ -672,7 +671,7 @@ public class AddCloth : MonoBehaviour, IDataPersistence
         newImage.rectTransform.localPosition = new Vector3(currentCursorHoriz,currentCursorVert,0);
         newImage.rectTransform.anchorMin = new Vector2(0,1);
         newImage.rectTransform.anchorMax = new Vector2(0,1);
-        newImage.rectTransform.pivot = new Vector2(0.5f,0.5f);
+        newImage.rectTransform.pivot = new Vector2(0f,1f);
         newImage.rectTransform.localPosition = new Vector3(newImage.rectTransform.localPosition.x,currentCursorVert,0);
 
         
@@ -707,7 +706,7 @@ public class AddCloth : MonoBehaviour, IDataPersistence
         newImage.rectTransform.localPosition = new Vector3(currentCursorHoriz,currentCursorVert,0);
         newImage.rectTransform.anchorMin = new Vector2(0,1);
         newImage.rectTransform.anchorMax = new Vector2(0,1);
-        newImage.rectTransform.pivot = new Vector2(0.5f,0.5f);
+        newImage.rectTransform.pivot = new Vector2(0f,1f);
         newImage.rectTransform.localPosition = new Vector3(newImage.rectTransform.localPosition.x,currentCursorVert,0);
 
         
@@ -737,14 +736,14 @@ public class AddCloth : MonoBehaviour, IDataPersistence
         text.text="Tops";
         topFloor.SetActive(true);
         RectTransform wardrobePanelRect = topFloor.transform.parent.gameObject.GetComponent<RectTransform>();
-        wardrobePanelRect.sizeDelta = new Vector2(wardrobePanelRect.rect.width,topHeight+35);
+        wardrobePanelRect.sizeDelta = new Vector2(wardrobePanelRect.rect.width,topHeight);
         }else if(imageCurrent.sprite.ToString().Contains("skirt") ||
         imageCurrent.sprite.ToString().Contains("pants") ||
         imageCurrent.sprite.ToString().Contains("jogging")){
         text.text="Legwear";
         legwearFloor.SetActive(true);
         RectTransform wardrobePanelRect = legwearFloor.transform.parent.gameObject.GetComponent<RectTransform>();
-        wardrobePanelRect.sizeDelta = new Vector2(wardrobePanelRect.rect.width,legwearHeight+35);
+        wardrobePanelRect.sizeDelta = new Vector2(wardrobePanelRect.rect.width,legwearHeight+900);
         }else if(imageCurrent.sprite.ToString().Contains("blazer") ||
         imageCurrent.sprite.ToString().Contains("coat") ){
         text.text="Outerwear";
