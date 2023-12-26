@@ -133,6 +133,71 @@ public class ChangePattern : MonoBehaviour
                 image.sprite = coat[4];
             }
         }
+        if(image.sprite.ToString().Contains("sneaker")){
+            if(pattern.Equals("plain")){
+                image.sprite = sneaker[0];
+            }else if(pattern.Equals("stripe")){
+                image.sprite = sneaker[1];
+            }else if(pattern.Equals("dot")){
+                image.sprite = sneaker[2];
+            }else if(pattern.Equals("check")){
+                image.sprite = sneaker[3];
+            }else if(pattern.Equals("flower")){
+                image.sprite = sneaker[4];
+            }
+        }
+        if(image.sprite.ToString().Contains("sock")){
+            if(pattern.Equals("plain")){
+                image.sprite = socks[0];
+            }else if(pattern.Equals("stripe")){
+                image.sprite = socks[1];
+            }else if(pattern.Equals("dot")){
+                image.sprite = socks[2];
+            }else if(pattern.Equals("check")){
+                image.sprite = socks[3];
+            }else if(pattern.Equals("flower")){
+                image.sprite = socks[4];
+            }
+        }
+        if(image.sprite.ToString().Contains("hat")){
+            if(pattern.Equals("plain")){
+                image.sprite = hat[0];
+            }else if(pattern.Equals("stripe")){
+                image.sprite = hat[1];
+            }else if(pattern.Equals("dot")){
+                image.sprite = hat[2];
+            }else if(pattern.Equals("check")){
+                image.sprite = hat[3];
+            }else if(pattern.Equals("flower")){
+                image.sprite = hat[4];
+            }
+        }
+        if(image.sprite.ToString().Contains("cap")){
+            if(pattern.Equals("plain")){
+                image.sprite = cap[0];
+            }else if(pattern.Equals("stripe")){
+                image.sprite = cap[1];
+            }else if(pattern.Equals("dot")){
+                image.sprite = cap[2];
+            }else if(pattern.Equals("check")){
+                image.sprite = cap[3];
+            }else if(pattern.Equals("flower")){
+                image.sprite = cap[4];
+            }
+        }
+        if(image.sprite.ToString().Contains("boot")){
+            if(pattern.Equals("plain")){
+                image.sprite = boots[0];
+            }else if(pattern.Equals("stripe")){
+                image.sprite = boots[1];
+            }else if(pattern.Equals("dot")){
+                image.sprite = boots[2];
+            }else if(pattern.Equals("check")){
+                image.sprite = boots[3];
+            }else if(pattern.Equals("flower")){
+                image.sprite = boots[4];
+            }
+        }
     }
 
     

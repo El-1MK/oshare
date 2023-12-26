@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Linq;
 
 public class DataPersistenceManager : MonoBehaviour
@@ -27,6 +28,13 @@ public class DataPersistenceManager : MonoBehaviour
         Debug.Log(this.dataHandler);
         this.dataPersistenceObjects = FindAllDataPersistenceObjects();
         LoadGame();
+
+        // Fix for Rating Screen scene
+        if (SceneManager.GetActiveScene().name.Equals("RatingScreen"))
+        {
+            Debug.Log("RatingScreen scene detected");
+            transform.GetComponent<RatingScreenLoader>().Load();
+        } 
     }
 
     public void NewGame()
