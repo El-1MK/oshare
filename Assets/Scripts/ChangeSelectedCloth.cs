@@ -45,13 +45,13 @@ public class ChangeSelectedCloth : MonoBehaviour
         RectTransform rect = image.GetComponent<RectTransform>();
         if(image.sprite.ToString().Contains("pants") ||image.sprite.ToString().Contains("jogging")){
             rect.sizeDelta = new Vector2(690,1525);
-            image.transform.localPosition = new Vector3(-720f,770f,0f);
+            image.transform.localPosition = new Vector3(-720f,470f,0f);
         }else if(image.sprite.ToString().Contains("tshirt") ||image.sprite.ToString().Contains("marcel")){
             rect.sizeDelta = new Vector2(1230,1342);
-            image.transform.localPosition = new Vector3(-960f,260f,0f);
+            image.transform.localPosition = new Vector3(-960f,160f,0f);
         }else if(image.sprite.ToString().Contains("blouse")){
             rect.sizeDelta = new Vector2(1226,1300);
-            image.transform.localPosition = new Vector3(-960f,630f,0f);
+            image.transform.localPosition = new Vector3(-960f,430f,0f);
         }else if(image.sprite.ToString().Contains("skirt")){
             rect.sizeDelta = new Vector2(690,600);
             image.transform.localPosition = new Vector3(-720f,280f,0f);
