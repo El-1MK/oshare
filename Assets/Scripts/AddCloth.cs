@@ -18,11 +18,11 @@ public class AddCloth : MonoBehaviour, IDataPersistence
     private static int offsetshoesHoriz = 540;
     private static int offsetshoesVert = 420;
     private static int offsetsocksHoriz = 540;
-    private static int offsetsocksVert = 420;
+    private static int offsetsocksVert = 550;
     private static int offsetheadgearHoriz = 540;
     private static int offsetheadgearVert = 420;
     private static int offsetaccessoriesHoriz = 540;
-    private static int offsetaccessoriesVert = 420;
+    private static int offsetaccessoriesVert = 650;
 
 
     public int topCounter = 0;
@@ -49,6 +49,8 @@ public class AddCloth : MonoBehaviour, IDataPersistence
     public GameObject accessoriesFloor;
     public GameObject shoesFloor;
     public GameObject socksFloor;
+    public GameObject extraPanel;
+    public GameObject extraText;
     private float topHeight;
     private float legwearHeight;
     private float outerwearHeight;
@@ -57,18 +59,25 @@ public class AddCloth : MonoBehaviour, IDataPersistence
     private float headgearHeight;
     private float accessoriesHeight;
 
-    public List<Sprite> availableClothes;
+    public List<Sprite> availableTshirts;
     public List<Sprite> availableMarcels;
     public List<Sprite> availableBlouses;
+    public List<Sprite> availableLongsleeves;
     public List <Sprite> availablePants;
     public List <Sprite> availableJogging;
+    public List <Sprite> availableJeans;
     public List <Sprite> availableSkirt;
     public List <Sprite> availableBlazer;
     public List <Sprite> availableCoat;
+    public List <Sprite> availableSweat;
+    public List <Sprite> availableTurtleneck;
     public List <Sprite> availableBaskets;
     public List <Sprite> availableBoots;
+    public List <Sprite> availableShoes;
     public List <Sprite> availableSocks;
+    public List <Sprite> availableLongsocks;
     public List <Sprite> availableCap;
+    public List <Sprite> availableScarf;
     public List <Sprite> availableHat;
     public List <Sprite> availableAccessories;
 
@@ -104,7 +113,7 @@ public class AddCloth : MonoBehaviour, IDataPersistence
         }
         for(int i=0;i<tops.Count;i++)
         {
-            loadCloth( tops[i].sprite,tops[i].red,tops[i].green,tops[i].blue,tops[i].albedo,tops[i].category,tops[i].pattern,i);
+            loadCloth( tops[i].sprite,tops[i].red,tops[i].green,tops[i].blue,tops[i].albedo,tops[i].category,tops[i].pattern,i,tops[i].extra);
         }
         for(int i=0;i<outerwear.Count;i++)
         {
@@ -135,7 +144,7 @@ public class AddCloth : MonoBehaviour, IDataPersistence
     
     public void addCloth()
     {
-        if(imageCurrent.sprite.ToString().Contains("tshirt") || imageCurrent.sprite.ToString().Contains("marcel") || imageCurrent.sprite.ToString().Contains("blouse")){
+        if(imageCurrent.sprite.ToString().Contains("tshirt") || imageCurrent.sprite.ToString().Contains("marcel") || imageCurrent.sprite.ToString().Contains("blouse")|| imageCurrent.sprite.ToString().Contains("longsleeve")){
         int nbRow = topCounter/3;
 
         float currentCursorVert = -nbRow * offsettopVert;
@@ -146,10 +155,17 @@ public class AddCloth : MonoBehaviour, IDataPersistence
         Image newImage = imageAddedToScene.AddComponent<Image>();
         newImage.sprite = imageCurrent.sprite;
 
-        newImage.rectTransform.sizeDelta = new Vector2(550,600);
+        if(imageCurrent.sprite.ToString().Contains("longsleeve")){
+            newImage.rectTransform.sizeDelta = new Vector2(500,600);
+        }else{
+            newImage.rectTransform.sizeDelta = new Vector2(550,600);
+        }
         newImage.color = imageCurrent.color;
-
-        wardrobe.Add(new Cloth(imageCurrent.sprite.ToString(),imageCurrent.color.r,imageCurrent.color.g,imageCurrent.color.b,imageCurrent.color.a,"top",currentPattern));
+        if(imageCurrent.sprite.ToString().Contains("pocket")){
+            wardrobe.Add(new Cloth(imageCurrent.sprite.ToString(),imageCurrent.color.r,imageCurrent.color.g,imageCurrent.color.b,imageCurrent.color.a,"top",currentPattern,"pocket"));
+        }else{
+            wardrobe.Add(new Cloth(imageCurrent.sprite.ToString(),imageCurrent.color.r,imageCurrent.color.g,imageCurrent.color.b,imageCurrent.color.a,"top",currentPattern));
+        }
 
         imageAddedToScene.transform.SetParent(topFloor.transform);
         newImage.rectTransform.localScale = new Vector3(1f,1f,1f);
@@ -170,7 +186,7 @@ public class AddCloth : MonoBehaviour, IDataPersistence
             
         }
         topCounter++;
-        }else if(imageCurrent.sprite.ToString().Contains("pants") || imageCurrent.sprite.ToString().Contains("jogging") || imageCurrent.sprite.ToString().Contains("skirt")){
+        }else if(imageCurrent.sprite.ToString().Contains("pants") || imageCurrent.sprite.ToString().Contains("jogging") || imageCurrent.sprite.ToString().Contains("skirt")|| imageCurrent.sprite.ToString().Contains("jeans")){
             int nbRow = legwearCounter/3;
 
             float currentCursorVert = -50f - nbRow * offsetlegwearVert;
@@ -180,7 +196,7 @@ public class AddCloth : MonoBehaviour, IDataPersistence
             imageAddedToScene = new GameObject();
             Image newImage = imageAddedToScene.AddComponent<Image>();
             newImage.sprite = imageCurrent.sprite;
-            if(imageCurrent.sprite.ToString().Contains("pants") ||imageCurrent.sprite.ToString().Contains("jogging") ){
+            if(imageCurrent.sprite.ToString().Contains("pants") ||imageCurrent.sprite.ToString().Contains("jogging")|| imageCurrent.sprite.ToString().Contains("jeans") ){
             newImage.rectTransform.sizeDelta = new Vector2(330,700);
             }else{
                 newImage.rectTransform.sizeDelta = new Vector2(330,270);
@@ -195,7 +211,7 @@ public class AddCloth : MonoBehaviour, IDataPersistence
             newImage.rectTransform.anchorMin = new Vector2(0,1);
             newImage.rectTransform.anchorMax = new Vector2(0,1);
             newImage.rectTransform.pivot = new Vector2(0f,1f);
-            if(imageCurrent.sprite.ToString().Contains("pants") ||imageCurrent.sprite.ToString().Contains("jogging") ){
+            if(imageCurrent.sprite.ToString().Contains("pants") ||imageCurrent.sprite.ToString().Contains("jogging") || imageCurrent.sprite.ToString().Contains("jeans")){
             newImage.rectTransform.localPosition = new Vector3(newImage.rectTransform.localPosition.x,currentCursorVert,0);
             }else{
                 newImage.rectTransform.localPosition = new Vector3(newImage.rectTransform.localPosition.x,currentCursorVert-150f,0);
@@ -204,14 +220,14 @@ public class AddCloth : MonoBehaviour, IDataPersistence
 
             if(legwearCounter%3 == 0){
                 RectTransform legwearPanelRect = imageAddedToScene.transform.parent.gameObject.GetComponent<RectTransform>();
-                legwearPanelRect.sizeDelta = new Vector2(legwearPanelRect.rect.width,legwearPanelRect.rect.height + 800);
+                legwearPanelRect.sizeDelta = new Vector2(legwearPanelRect.rect.width,legwearPanelRect.rect.height + 650);
                // topPanelRect.localPosition = new Vector3(topPanelRect.anchoredPosition.x,topPanelRect.anchoredPositon.y + 75,0 );
                RectTransform wardrobePanelRect = imageAddedToScene.transform.parent.gameObject.transform.parent.gameObject.GetComponent<RectTransform>();
-               wardrobePanelRect.sizeDelta = new Vector2(wardrobePanelRect.rect.width,wardrobePanelRect.rect.height + 800);
-                legwearHeight+=800;
+               wardrobePanelRect.sizeDelta = new Vector2(wardrobePanelRect.rect.width,wardrobePanelRect.rect.height + 650);
+                legwearHeight+=650;
             }
             legwearCounter++;
-        }else if(imageCurrent.sprite.ToString().Contains("blazer") || imageCurrent.sprite.ToString().Contains("coat")){
+        }else if(imageCurrent.sprite.ToString().Contains("blazer") || imageCurrent.sprite.ToString().Contains("coat")|| imageCurrent.sprite.ToString().Contains("sweat") ||imageCurrent.sprite.ToString().Contains("turtleneck")){
             int nbRow = outerwearCounter/3;
         
             float currentCursorVert = -20f - nbRow * offsetouterwearVert;
@@ -237,15 +253,15 @@ public class AddCloth : MonoBehaviour, IDataPersistence
 
             if(outerwearCounter%3 == 0){
                 RectTransform outerwearPanelRect = imageAddedToScene.transform.parent.gameObject.GetComponent<RectTransform>();
-                outerwearPanelRect.sizeDelta = new Vector2(outerwearPanelRect.rect.width,outerwearPanelRect.rect.height + 450);
+                outerwearPanelRect.sizeDelta = new Vector2(outerwearPanelRect.rect.width,outerwearPanelRect.rect.height + 550);
                RectTransform wardrobePanelRect = imageAddedToScene.transform.parent.gameObject.transform.parent.gameObject.GetComponent<RectTransform>();
-               wardrobePanelRect.sizeDelta = new Vector2(wardrobePanelRect.rect.width,wardrobePanelRect.rect.height + 450);
-                outerwearHeight+=450;
+               wardrobePanelRect.sizeDelta = new Vector2(wardrobePanelRect.rect.width,wardrobePanelRect.rect.height + 550);
+                outerwearHeight+=550;
             }
             outerwearCounter++;
 
 
-    }else if(imageCurrent.sprite.ToString().Contains("sneaker") || imageCurrent.sprite.ToString().Contains("boot")){
+    }else if(imageCurrent.sprite.ToString().Contains("sneaker") || imageCurrent.sprite.ToString().Contains("boot") || imageCurrent.sprite.ToString().Contains("shoe")){
             int nbRow = shoesCounter/3;
         
             float currentCursorVert = -160f - nbRow * offsetshoesVert;
@@ -289,7 +305,12 @@ public class AddCloth : MonoBehaviour, IDataPersistence
             imageAddedToScene = new GameObject();
             Image newImage = imageAddedToScene.AddComponent<Image>();
             newImage.sprite = imageCurrent.sprite;
-            newImage.rectTransform.sizeDelta = new Vector2(540,260);
+
+            if(imageCurrent.sprite.ToString().Contains("longsock")){
+                newImage.rectTransform.sizeDelta = new Vector2(540,500);
+            }else{
+                newImage.rectTransform.sizeDelta = new Vector2(540,260);
+            }
             newImage.color = imageCurrent.color;
 
             wardrobe.Add(new Cloth(imageCurrent.sprite.ToString(),imageCurrent.color.r,imageCurrent.color.g,imageCurrent.color.b,imageCurrent.color.a,"sock",currentPattern));
@@ -305,10 +326,10 @@ public class AddCloth : MonoBehaviour, IDataPersistence
 
             if(socksCounter%3 == 0){
                 RectTransform socksPanelRect = imageAddedToScene.transform.parent.gameObject.GetComponent<RectTransform>();
-                socksPanelRect.sizeDelta = new Vector2(socksPanelRect.rect.width,socksPanelRect.rect.height + 450);
+                socksPanelRect.sizeDelta = new Vector2(socksPanelRect.rect.width,socksPanelRect.rect.height + 550);
                RectTransform wardrobePanelRect = imageAddedToScene.transform.parent.gameObject.transform.parent.gameObject.GetComponent<RectTransform>();
-               wardrobePanelRect.sizeDelta = new Vector2(wardrobePanelRect.rect.width,wardrobePanelRect.rect.height + 450);
-                socksHeight+=450;
+               wardrobePanelRect.sizeDelta = new Vector2(wardrobePanelRect.rect.width,wardrobePanelRect.rect.height + 550);
+                socksHeight+=550;
             }
             socksCounter++;
 
@@ -347,7 +368,7 @@ public class AddCloth : MonoBehaviour, IDataPersistence
             headgearCounter++;
 
 
-    }else if(imageCurrent.sprite.ToString().Contains("glasses") || imageCurrent.sprite.ToString().Contains("necklace") || imageCurrent.sprite.ToString().Contains("skirt")){
+    }else if(imageCurrent.sprite.ToString().Contains("glasses") || imageCurrent.sprite.ToString().Contains("necklace") || imageCurrent.sprite.ToString().Contains("scarf")){
             int nbRow = accessoriesCounter/3;
 
             float currentCursorVert = -160f - nbRow * offsetaccessoriesVert;
@@ -359,8 +380,10 @@ public class AddCloth : MonoBehaviour, IDataPersistence
             newImage.sprite = imageCurrent.sprite;
             if(imageCurrent.sprite.ToString().Contains("glasses") ){
             newImage.rectTransform.sizeDelta = new Vector2(540,260);
-            }else{
+            }else if(imageCurrent.sprite.ToString().Contains("necklace") ){
                 newImage.rectTransform.sizeDelta = new Vector2(540,260);
+            }else{
+                newImage.rectTransform.sizeDelta = new Vector2(540,600);
             }
             newImage.color = imageCurrent.color;
 
@@ -377,16 +400,16 @@ public class AddCloth : MonoBehaviour, IDataPersistence
 
             if(accessoriesCounter%3 == 0){
                 RectTransform accessoriesPanelRect = imageAddedToScene.transform.parent.gameObject.GetComponent<RectTransform>();
-                accessoriesPanelRect.sizeDelta = new Vector2(accessoriesPanelRect.rect.width,accessoriesPanelRect.rect.height + 450);
+                accessoriesPanelRect.sizeDelta = new Vector2(accessoriesPanelRect.rect.width,accessoriesPanelRect.rect.height + 650);
                RectTransform wardrobePanelRect = imageAddedToScene.transform.parent.gameObject.transform.parent.gameObject.GetComponent<RectTransform>();
-               wardrobePanelRect.sizeDelta = new Vector2(wardrobePanelRect.rect.width,wardrobePanelRect.rect.height + 450);
-                accessoriesHeight+=450;
+               wardrobePanelRect.sizeDelta = new Vector2(wardrobePanelRect.rect.width,wardrobePanelRect.rect.height + 650);
+                accessoriesHeight+=650;
             }
             accessoriesCounter++;
     }
     }
 
-    public void loadCloth(string image,float red,float green,float blue,float albedo,string category,string pattern, int index)
+    public void loadCloth(string image,float red,float green,float blue,float albedo,string category,string pattern, int index,string extra = null)
     {
         if(category == "top"){
         int nbRow = (topCounter-(topCounter - index))/3;
@@ -398,11 +421,11 @@ public class AddCloth : MonoBehaviour, IDataPersistence
         imageAddedToScene = new GameObject();
         Image newImage = imageAddedToScene.AddComponent<Image>();
         if(image.Contains("tshirt")){
-        if(pattern == "plain")newImage.sprite = availableClothes[0];
-        if(pattern == "check")newImage.sprite = availableClothes[3];
-        if(pattern == "stripe")newImage.sprite = availableClothes[1];
-        if(pattern == "dot")newImage.sprite = availableClothes[2];
-        if(pattern == "flower")newImage.sprite = availableClothes[4];
+        if(pattern == "plain"){newImage.sprite = (extra == "pocket") ? availableTshirts[5] : availableTshirts[0];}
+        if(pattern == "check"){newImage.sprite = (extra == "pocket") ? availableTshirts[6] : availableTshirts[1];}
+        if(pattern == "stripe"){newImage.sprite = (extra == "pocket") ? availableTshirts[7] : availableTshirts[2];}
+        if(pattern == "dot"){newImage.sprite = (extra == "pocket") ? availableTshirts[8] : availableTshirts[3];}
+        if(pattern == "flower"){newImage.sprite = (extra == "pocket") ? availableTshirts[9] : availableTshirts[4];}
         }else if(image.Contains("marcel")){
         if(pattern == "plain")newImage.sprite = availableMarcels[0];
         if(pattern == "stripe")newImage.sprite = availableMarcels[1];
@@ -410,17 +433,27 @@ public class AddCloth : MonoBehaviour, IDataPersistence
         if(pattern == "check")newImage.sprite = availableMarcels[3];
         if(pattern == "flower")newImage.sprite = availableMarcels[4];
         }else if(image.Contains("blouse")){
-        if(pattern == "plain")newImage.sprite = availableBlouses[0];
-        if(pattern == "stripe")newImage.sprite = availableBlouses[1];
-        if(pattern == "dot")newImage.sprite = availableBlouses[2];
-        if(pattern == "check")newImage.sprite = availableBlouses[3];
-        if(pattern == "flower")newImage.sprite = availableBlouses[4];
+        if(pattern == "plain"){newImage.sprite = (extra == "pocket") ? availableBlouses[5] : availableBlouses[0];}
+        if(pattern == "stripe"){newImage.sprite = (extra == "pocket") ? availableBlouses[6] : availableBlouses[1];}
+        if(pattern == "dot"){newImage.sprite = (extra == "pocket") ? availableBlouses[7] : availableBlouses[2];}
+        if(pattern == "check"){newImage.sprite = (extra == "pocket") ? availableBlouses[8] : availableBlouses[3];}
+        if(pattern == "flower"){newImage.sprite = (extra == "pocket") ? availableBlouses[9] : availableBlouses[4];}
+        }else if(image.Contains("longsleeve")){
+        if(pattern == "plain")newImage.sprite = availableLongsleeves[0];
+        if(pattern == "stripe")newImage.sprite = availableLongsleeves[1];
+        if(pattern == "dot")newImage.sprite = availableLongsleeves[2];
+        if(pattern == "check")newImage.sprite = availableLongsleeves[3];
+        if(pattern == "flower")newImage.sprite = availableLongsleeves[4];
         }
 
 
 
 
-        newImage.rectTransform.sizeDelta = new Vector2(550,600);
+        if(image.Contains("longsleeve")){
+            newImage.rectTransform.sizeDelta = new Vector2(500,600);
+        }else{
+            newImage.rectTransform.sizeDelta = new Vector2(550,600);
+        }
         newImage.color = new Color(red,green,blue,albedo);
 
 
@@ -464,6 +497,12 @@ public class AddCloth : MonoBehaviour, IDataPersistence
         if(pattern == "dot")newImage.sprite = availableJogging[2];
         if(pattern == "check")newImage.sprite = availableJogging[3];
         if(pattern == "flower")newImage.sprite = availableJogging[4];
+        }else if(image.Contains("jeans")){
+        if(pattern == "plain")newImage.sprite = availableJeans[0];
+        if(pattern == "stripe")newImage.sprite = availableJeans[1];
+        if(pattern == "dot")newImage.sprite = availableJeans[2];
+        if(pattern == "check")newImage.sprite = availableJeans[3];
+        if(pattern == "flower")newImage.sprite = availableJeans[4];
         }else if(image.Contains("skirt")){
         if(pattern == "plain")newImage.sprite = availableSkirt[0];
         if(pattern == "stripe")newImage.sprite = availableSkirt[1];
@@ -475,7 +514,7 @@ public class AddCloth : MonoBehaviour, IDataPersistence
 
 
         
-        if(image.Contains("pants") ||image.Contains("jogging") ){
+        if(image.Contains("pants") ||image.Contains("jogging")||image.Contains("jeans") ){
             newImage.rectTransform.sizeDelta = new Vector2(330,700);
             }else{
                 newImage.rectTransform.sizeDelta = new Vector2(330,270);
@@ -489,7 +528,7 @@ public class AddCloth : MonoBehaviour, IDataPersistence
         newImage.rectTransform.anchorMin = new Vector2(0,1);
         newImage.rectTransform.anchorMax = new Vector2(0,1);
         newImage.rectTransform.pivot = new Vector2(0f,1f);
-        if(image.Contains("pants") ||image.Contains("jogging") ){
+        if(image.Contains("pants") ||image.Contains("jogging")||image.Contains("jeans") ){
             newImage.rectTransform.localPosition = new Vector3(newImage.rectTransform.localPosition.x,currentCursorVert,0);
             }else{
                 newImage.rectTransform.localPosition = new Vector3(newImage.rectTransform.localPosition.x,currentCursorVert-150f,0);
@@ -499,7 +538,7 @@ public class AddCloth : MonoBehaviour, IDataPersistence
         if(index > 0 && index%3==0){
 
             RectTransform legwearPanelRect = imageAddedToScene.transform.parent.gameObject.GetComponent<RectTransform>();
-            legwearPanelRect.sizeDelta = new Vector2(legwearPanelRect.rect.width,legwearPanelRect.rect.height + 800);
+            legwearPanelRect.sizeDelta = new Vector2(legwearPanelRect.rect.width,legwearPanelRect.rect.height + 650);
             legwearHeight = legwearPanelRect.rect.height;            
         }
     }else if(category == "outerwear"){
@@ -524,6 +563,18 @@ public class AddCloth : MonoBehaviour, IDataPersistence
         if(pattern == "dot")newImage.sprite = availableCoat[2];
         if(pattern == "check")newImage.sprite = availableCoat[3];
         if(pattern == "flower")newImage.sprite = availableCoat[4];
+        }else if(image.Contains("sweat")){
+        if(pattern == "plain")newImage.sprite = availableSweat[0];
+        if(pattern == "stripe")newImage.sprite = availableSweat[1];
+        if(pattern == "dot")newImage.sprite = availableSweat[2];
+        if(pattern == "check")newImage.sprite = availableSweat[3];
+        if(pattern == "flower")newImage.sprite = availableSweat[4];
+        }else if(image.Contains("turtleneck")){
+        if(pattern == "plain")newImage.sprite = availableTurtleneck[0];
+        if(pattern == "stripe")newImage.sprite = availableTurtleneck[1];
+        if(pattern == "dot")newImage.sprite = availableTurtleneck[2];
+        if(pattern == "check")newImage.sprite = availableTurtleneck[3];
+        if(pattern == "flower")newImage.sprite = availableTurtleneck[4];
         }
 
 
@@ -544,7 +595,7 @@ public class AddCloth : MonoBehaviour, IDataPersistence
         if(index > 0 && index%3==0){
 
             RectTransform outerwearPanelRect = imageAddedToScene.transform.parent.gameObject.GetComponent<RectTransform>();
-            outerwearPanelRect.sizeDelta = new Vector2(outerwearPanelRect.rect.width,outerwearPanelRect.rect.height + 650);
+            outerwearPanelRect.sizeDelta = new Vector2(outerwearPanelRect.rect.width,outerwearPanelRect.rect.height + 550);
             outerwearHeight = outerwearPanelRect.rect.height;            
         }
     }else if(category == "shoe"){
@@ -568,6 +619,12 @@ public class AddCloth : MonoBehaviour, IDataPersistence
         if(pattern == "dot")newImage.sprite = availableBoots[2];
         if(pattern == "check")newImage.sprite = availableBoots[3];
         if(pattern == "flower")newImage.sprite = availableBoots[4];
+        }else if(image.Contains("shoe")){
+        if(pattern == "plain")newImage.sprite = availableShoes[0];
+        if(pattern == "stripe")newImage.sprite = availableShoes[1];
+        if(pattern == "dot")newImage.sprite = availableShoes[2];
+        if(pattern == "check")newImage.sprite = availableShoes[3];
+        if(pattern == "flower")newImage.sprite = availableShoes[4];
         }
 
 
@@ -588,7 +645,7 @@ public class AddCloth : MonoBehaviour, IDataPersistence
         if(index > 0 && index%3==0){
 
             RectTransform shoesPanelRect = imageAddedToScene.transform.parent.gameObject.GetComponent<RectTransform>();
-            shoesPanelRect.sizeDelta = new Vector2(shoesPanelRect.rect.width,shoesPanelRect.rect.height + 450);
+            shoesPanelRect.sizeDelta = new Vector2(shoesPanelRect.rect.width,shoesPanelRect.rect.height + 550);
             shoesHeight = shoesPanelRect.rect.height;            
         }
     }else if(category == "sock"){
@@ -600,7 +657,13 @@ public class AddCloth : MonoBehaviour, IDataPersistence
 
         imageAddedToScene = new GameObject();
         Image newImage = imageAddedToScene.AddComponent<Image>();
-         if(image.Contains("sock")){
+        if(image.Contains("sock")){
+        if(pattern == "plain")newImage.sprite = availableLongsocks[0];
+        if(pattern == "stripe")newImage.sprite = availableLongsocks[1];
+        if(pattern == "dot")newImage.sprite = availableLongsocks[2];
+        if(pattern == "check")newImage.sprite = availableLongsocks[3];
+        if(pattern == "flower")newImage.sprite = availableLongsocks[4];
+        }else if(image.Contains("sock")){
         if(pattern == "plain")newImage.sprite = availableSocks[0];
         if(pattern == "stripe")newImage.sprite = availableSocks[1];
         if(pattern == "dot")newImage.sprite = availableSocks[2];
@@ -609,7 +672,11 @@ public class AddCloth : MonoBehaviour, IDataPersistence
         }
 
         
-        newImage.rectTransform.sizeDelta = new Vector2(540,260);
+        if(image.Contains("longsock")){
+                newImage.rectTransform.sizeDelta = new Vector2(540,500);
+            }else{
+                newImage.rectTransform.sizeDelta = new Vector2(540,260);
+            }
         newImage.color = new Color(red,green,blue,albedo);
 
 
@@ -687,6 +754,15 @@ public class AddCloth : MonoBehaviour, IDataPersistence
         }else if(image.Contains("necklace")){newImage.sprite = availableAccessories[1];newImage.rectTransform.sizeDelta = new Vector2(540,260);
         }
 
+        if(image.Contains("scarf")){
+        if(pattern == "plain")newImage.sprite = availableScarf[0];
+        if(pattern == "stripe")newImage.sprite = availableScarf[1];
+        if(pattern == "dot")newImage.sprite = availableScarf[2];
+        if(pattern == "check")newImage.sprite = availableScarf[3];
+        if(pattern == "flower")newImage.sprite = availableScarf[4];
+        newImage.rectTransform.sizeDelta = new Vector2(540,600);
+        }
+
 
         
         
@@ -705,12 +781,13 @@ public class AddCloth : MonoBehaviour, IDataPersistence
         if(index > 0 && index%3==0){
 
             RectTransform accessoriesPanelRect = imageAddedToScene.transform.parent.gameObject.GetComponent<RectTransform>();
-            accessoriesPanelRect.sizeDelta = new Vector2(accessoriesPanelRect.rect.width,accessoriesPanelRect.rect.height + 450);
+            accessoriesPanelRect.sizeDelta = new Vector2(accessoriesPanelRect.rect.width,accessoriesPanelRect.rect.height + 650);
             accessoriesHeight = accessoriesPanelRect.rect.height;            
         }
     }
 
     }
+
 
     public void switchCloth(){
         legwearFloor.SetActive(false);
@@ -720,45 +797,55 @@ public class AddCloth : MonoBehaviour, IDataPersistence
         socksFloor.SetActive(false);
         shoesFloor.SetActive(false);
         outerwearFloor.SetActive(false);
+        extraPanel.SetActive(false);
+        extraText.SetActive(false);
         string category = "";
         if(imageCurrent.sprite.ToString().Contains("blouse") || 
         imageCurrent.sprite.ToString().Contains("marcel") ||
-        imageCurrent.sprite.ToString().Contains("tshirt")
+        imageCurrent.sprite.ToString().Contains("tshirt") ||
+        imageCurrent.sprite.ToString().Contains("longsleeve")
         ){
         text.text="Tops";
         topFloor.SetActive(true);
         RectTransform wardrobePanelRect = topFloor.transform.parent.gameObject.GetComponent<RectTransform>();
         wardrobePanelRect.sizeDelta = new Vector2(wardrobePanelRect.rect.width,topHeight);
+        if(imageCurrent.sprite.ToString().Contains("tshirt")
+        || imageCurrent.sprite.ToString().Contains("blouse")){extraPanel.SetActive(true);extraText.SetActive(true);}
         }else if(imageCurrent.sprite.ToString().Contains("skirt") ||
         imageCurrent.sprite.ToString().Contains("pants") ||
-        imageCurrent.sprite.ToString().Contains("jogging")){
+        imageCurrent.sprite.ToString().Contains("jogging") ||
+        imageCurrent.sprite.ToString().Contains("jeans")){
         text.text="Legwear";
         legwearFloor.SetActive(true);
         RectTransform wardrobePanelRect = legwearFloor.transform.parent.gameObject.GetComponent<RectTransform>();
-        wardrobePanelRect.sizeDelta = new Vector2(wardrobePanelRect.rect.width,legwearHeight+900);
+        wardrobePanelRect.sizeDelta = new Vector2(wardrobePanelRect.rect.width,legwearHeight+800);
         }else if(imageCurrent.sprite.ToString().Contains("blazer") ||
-        imageCurrent.sprite.ToString().Contains("coat") ){
+        imageCurrent.sprite.ToString().Contains("coat") ||
+        imageCurrent.sprite.ToString().Contains("sweat") ||
+        imageCurrent.sprite.ToString().Contains("turtleneck")){
         text.text="Outerwear";
         outerwearFloor.SetActive(true);
         RectTransform wardrobePanelRect = outerwearFloor.transform.parent.gameObject.GetComponent<RectTransform>();
-        wardrobePanelRect.sizeDelta = new Vector2(wardrobePanelRect.rect.width,outerwearHeight+700);
+        wardrobePanelRect.sizeDelta = new Vector2(wardrobePanelRect.rect.width,outerwearHeight+600);
         }else if(imageCurrent.sprite.ToString().Contains("boot") ||
-        imageCurrent.sprite.ToString().Contains("sneaker")){
+        imageCurrent.sprite.ToString().Contains("sneaker") ||
+        imageCurrent.sprite.ToString().Contains("shoe")){
         text.text="Shoes";
         shoesFloor.SetActive(true);
         RectTransform wardrobePanelRect = shoesFloor.transform.parent.gameObject.GetComponent<RectTransform>();
-        wardrobePanelRect.sizeDelta = new Vector2(wardrobePanelRect.rect.width,shoesHeight+500);
-        }else if(imageCurrent.sprite.ToString().Contains("sock")){
+        wardrobePanelRect.sizeDelta = new Vector2(wardrobePanelRect.rect.width,shoesHeight);
+        }else if(imageCurrent.sprite.ToString().Contains("sock") || imageCurrent.sprite.ToString().Contains("longsock")){
         text.text="Socks";
         socksFloor.SetActive(true);
         RectTransform wardrobePanelRect = socksFloor.transform.parent.gameObject.GetComponent<RectTransform>();
-        wardrobePanelRect.sizeDelta = new Vector2(wardrobePanelRect.rect.width,socksHeight+500);
+        wardrobePanelRect.sizeDelta = new Vector2(wardrobePanelRect.rect.width,socksHeight+650);
         }else if(imageCurrent.sprite.ToString().Contains("necklace") ||
-        imageCurrent.sprite.ToString().Contains("glasses") ){
+        imageCurrent.sprite.ToString().Contains("glasses")||
+        imageCurrent.sprite.ToString().Contains("scarf") ){
         text.text="Accessories";
         accessoriesFloor.SetActive(true);
         RectTransform wardrobePanelRect = accessoriesFloor.transform.parent.gameObject.GetComponent<RectTransform>();
-        wardrobePanelRect.sizeDelta = new Vector2(wardrobePanelRect.rect.width,accessoriesHeight+500);
+        wardrobePanelRect.sizeDelta = new Vector2(wardrobePanelRect.rect.width,accessoriesHeight+900);
         }else if(imageCurrent.sprite.ToString().Contains("cap") ||
         imageCurrent.sprite.ToString().Contains("hat")){
         text.text="Headgear";

@@ -26,8 +26,9 @@ public class Cloth
 
     public string category;
     public string pattern;
+    public string extra;
 
-    public Cloth(string sprite, float r, float g, float b, float a, string categ, string patt)
+    public Cloth(string sprite, float r, float g, float b, float a, string categ, string patt, string ext = "none")
     {
         this.sprite = sprite;
         red = r;
@@ -36,5 +37,6 @@ public class Cloth
         albedo = a;
         category = categ;
         pattern = patt;
+        extra = ext;
     }
 }
