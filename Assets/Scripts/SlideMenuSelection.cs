@@ -40,6 +40,8 @@ public class SlideMenuSelection : MonoBehaviour
             child.localPosition = new Vector3(0.0f, 0.0f, 0f);
         }
     }
+
+    public int GetIndex() {return currentItem;}
 }
 
 

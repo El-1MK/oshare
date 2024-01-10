@@ -14,7 +14,8 @@ public class RatingScreenLoader : MonoBehaviour
         new Vector3(0.15f, 0.15f, 0f),
     };
 
-    public List<GameObject> selectors;
+    public List<SlideMenuSelection> selectors;
+    public AddCloth addcloth;
 
     // Start is called before the first frame update
     void Start()
@@ -33,9 +34,29 @@ public class RatingScreenLoader : MonoBehaviour
         for (int i = 0; i < 7; i++)
         {
             Debug.Log(scalings[i]);
-            GameObject selector = selectors[i];
-            selector.GetComponent<SlideMenuSelection>().Reset();
-            selector.GetComponent<SlideMenuSelection>().CenterChildren(this.scalings[i]);
+            SlideMenuSelection selector = selectors[i];
+            selector.Reset();
+            selector.CenterChildren(this.scalings[i]);
         }
     }
+    
+    public Cloth[] GetOutfit()
+    {
+        Cloth[] outfit = new Cloth[7];
+        string[] categories = new string[] {
+            "accessory",
+            "top",
+            "sock",
+            "headgear",
+            "outerwear",
+            "legwear",
+            "shoe"
+        };
+        for (int i = 0; i < 7; i++)
+        {
+            outfit[i] = addcloth.wardrobe.FindAll(c=>c.category == categories[i])[selectors[i].GetIndex()];
+        }
+        return outfit;
+    }
+    
 }

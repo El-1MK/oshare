@@ -36,7 +36,7 @@ public class AddCloth : MonoBehaviour, IDataPersistence
 
 
 
-    private List<Cloth> wardrobe = new List<Cloth>();
+    public List<Cloth> wardrobe = new List<Cloth>();
 
     public Image imageCurrent;
 

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class RatingManager : MonoBehaviour
 {
-    public List<GameObject> raters;
+    public List<StarRater> raters;
+    public RatingScreenLoader loader;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,9 +20,18 @@ public class RatingManager : MonoBehaviour
 
     public void RandomUpdate()
     {
-        foreach (GameObject rater in raters)
+        foreach (StarRater rater in raters)
         {
-            rater.GetComponent<StarRater>().RandomRating(); 
+            rater.RandomRating(); 
         }
+    }
+
+    public void RatingsUpdate()
+    {
+        Cloth[] outfit = loader.GetOutfit();
+        raters[0].ColorRating(outfit);
+        raters[1].PatternRating(outfit);
+        raters[2].OriginalityRating(outfit);
+        raters[3].VibeRating(outfit);
     }
 }
