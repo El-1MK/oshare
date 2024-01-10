@@ -7,37 +7,47 @@ using UnityEngine.UI;
 
 public class ChangePattern : MonoBehaviour
 {
+
     public Image image;
 
     public Sprite[] tshirts;
     public Sprite[] marcels;
     public Sprite[] blouses;
+    public Sprite[] longsleeves;
     public Sprite[] pants;
     public Sprite[] jogging;
+    public Sprite[] jeans;
     public Sprite[] skirt;
     public Sprite[] blazer;
     public Sprite[] coat;
+    public Sprite[] sweat;
+    public Sprite[] turtleneck;
     public Sprite[] sneaker;
+    public Sprite[] shoe;
     public Sprite[] boots;
     public Sprite[] socks;
+    public Sprite[] longsocks;
     public Sprite[] hat;
     public Sprite[] cap;
+    public Sprite[] scarfs;
 
 
     public void changePattern(string pattern)
     {
+       
         if(image.sprite.ToString().Contains("tshirt")){
             if(pattern.Equals("plain")){
-                image.sprite = tshirts[0];
+                image.sprite = image.sprite.ToString().Contains("pocket") ? image.sprite = tshirts[5] : image.sprite = tshirts[0];
             }else if(pattern.Equals("stripe")){
-                image.sprite = tshirts[1];
+                image.sprite = image.sprite.ToString().Contains("pocket") ? image.sprite = tshirts[6] : image.sprite = tshirts[1];
             }else if(pattern.Equals("dot")){
-                image.sprite = tshirts[2];
+                image.sprite = image.sprite.ToString().Contains("pocket") ? image.sprite = tshirts[7] : image.sprite = tshirts[2];
             }else if(pattern.Equals("check")){
-                image.sprite = tshirts[3];
+                image.sprite = image.sprite.ToString().Contains("pocket") ? image.sprite = tshirts[8] : image.sprite = tshirts[3];
             }else if(pattern.Equals("flower")){
-                image.sprite = tshirts[4];
+                image.sprite = image.sprite.ToString().Contains("pocket") ? image.sprite = tshirts[9] : image.sprite = tshirts[4];
             }
+
         }
         if(image.sprite.ToString().Contains("marcel")){
             if(pattern.Equals("plain")){
@@ -54,15 +64,29 @@ public class ChangePattern : MonoBehaviour
         }
         if(image.sprite.ToString().Contains("blouse")){
             if(pattern.Equals("plain")){
-                image.sprite = blouses[0];
+                image.sprite = image.sprite.ToString().Contains("pocket") ? image.sprite = blouses[5] : image.sprite = blouses[0];
             }else if(pattern.Equals("stripe")){
-                image.sprite = blouses[1];
+                image.sprite = image.sprite.ToString().Contains("pocket") ? image.sprite = blouses[6] : image.sprite = blouses[1];
             }else if(pattern.Equals("dot")){
-                image.sprite = blouses[2];
+                image.sprite = image.sprite.ToString().Contains("pocket") ? image.sprite = blouses[7] : image.sprite = blouses[2];
             }else if(pattern.Equals("check")){
-                image.sprite = blouses[3];
+                image.sprite = image.sprite.ToString().Contains("pocket") ? image.sprite = blouses[8] : image.sprite = blouses[3];
             }else if(pattern.Equals("flower")){
-                image.sprite = blouses[4];
+                image.sprite = image.sprite.ToString().Contains("pocket") ? image.sprite = blouses[9] : image.sprite = blouses[4];
+            }
+        }
+
+        if(image.sprite.ToString().Contains("longsleeve")){
+            if(pattern.Equals("plain")){
+                image.sprite = longsleeves[0];
+            }else if(pattern.Equals("stripe")){
+                image.sprite = longsleeves[1];
+            }else if(pattern.Equals("dot")){
+                image.sprite = longsleeves[2];
+            }else if(pattern.Equals("check")){
+                image.sprite = longsleeves[3];
+            }else if(pattern.Equals("flower")){
+                image.sprite = longsleeves[4];
             }
         }
 
@@ -91,6 +115,20 @@ public class ChangePattern : MonoBehaviour
                 image.sprite = jogging[3];
             }else if(pattern.Equals("flower")){
                 image.sprite = jogging[4];
+            }
+        }
+
+        if(image.sprite.ToString().Contains("jeans")){
+            if(pattern.Equals("plain")){
+                image.sprite = jeans[0];
+            }else if(pattern.Equals("stripe")){
+                image.sprite = jeans[1];
+            }else if(pattern.Equals("dot")){
+                image.sprite = jeans[2];
+            }else if(pattern.Equals("check")){
+                image.sprite = jeans[3];
+            }else if(pattern.Equals("flower")){
+                image.sprite = jeans[4];
             }
         }
 
@@ -133,6 +171,32 @@ public class ChangePattern : MonoBehaviour
                 image.sprite = coat[4];
             }
         }
+        if(image.sprite.ToString().Contains("sweat")){
+            if(pattern.Equals("plain")){
+                image.sprite = sweat[0];
+            }else if(pattern.Equals("stripe")){
+                image.sprite = sweat[1];
+            }else if(pattern.Equals("dot")){
+                image.sprite = sweat[2];
+            }else if(pattern.Equals("check")){
+                image.sprite = sweat[3];
+            }else if(pattern.Equals("flower")){
+                image.sprite = sweat[4];
+            }
+        }
+        if(image.sprite.ToString().Contains("turtleneck")){
+            if(pattern.Equals("plain")){
+                image.sprite = turtleneck[0];
+            }else if(pattern.Equals("stripe")){
+                image.sprite = turtleneck[1];
+            }else if(pattern.Equals("dot")){
+                image.sprite = turtleneck[2];
+            }else if(pattern.Equals("check")){
+                image.sprite = turtleneck[3];
+            }else if(pattern.Equals("flower")){
+                image.sprite = turtleneck[4];
+            }
+        }
         if(image.sprite.ToString().Contains("sneaker")){
             if(pattern.Equals("plain")){
                 image.sprite = sneaker[0];
@@ -146,6 +210,19 @@ public class ChangePattern : MonoBehaviour
                 image.sprite = sneaker[4];
             }
         }
+        if(image.sprite.ToString().Contains("shoe")){
+            if(pattern.Equals("plain")){
+                image.sprite = shoe[0];
+            }else if(pattern.Equals("stripe")){
+                image.sprite = shoe[1];
+            }else if(pattern.Equals("dot")){
+                image.sprite = shoe[2];
+            }else if(pattern.Equals("check")){
+                image.sprite = shoe[3];
+            }else if(pattern.Equals("flower")){
+                image.sprite = shoe[4];
+            }
+        }
         if(image.sprite.ToString().Contains("sock")){
             if(pattern.Equals("plain")){
                 image.sprite = socks[0];
@@ -157,6 +234,19 @@ public class ChangePattern : MonoBehaviour
                 image.sprite = socks[3];
             }else if(pattern.Equals("flower")){
                 image.sprite = socks[4];
+            }
+        }
+        if(image.sprite.ToString().Contains("longsock")){
+            if(pattern.Equals("plain")){
+                image.sprite = longsocks[0];
+            }else if(pattern.Equals("stripe")){
+                image.sprite = longsocks[1];
+            }else if(pattern.Equals("dot")){
+                image.sprite = longsocks[2];
+            }else if(pattern.Equals("check")){
+                image.sprite = longsocks[3];
+            }else if(pattern.Equals("flower")){
+                image.sprite = longsocks[4];
             }
         }
         if(image.sprite.ToString().Contains("hat")){
@@ -196,6 +286,19 @@ public class ChangePattern : MonoBehaviour
                 image.sprite = boots[3];
             }else if(pattern.Equals("flower")){
                 image.sprite = boots[4];
+            }
+        }
+        if(image.sprite.ToString().Contains("scarf")){
+            if(pattern.Equals("plain")){
+                image.sprite = scarfs[0];
+            }else if(pattern.Equals("stripe")){
+                image.sprite = scarfs[1];
+            }else if(pattern.Equals("dot")){
+                image.sprite = scarfs[2];
+            }else if(pattern.Equals("check")){
+                image.sprite = scarfs[3];
+            }else if(pattern.Equals("flower")){
+                image.sprite = scarfs[4];
             }
         }
     }
