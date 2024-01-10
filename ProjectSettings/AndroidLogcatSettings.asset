@@ -1,13 +1,98 @@
 {
-    "m_SelectedDeviceId": "",
+    "m_SelectedDeviceId": "RFCR30FRR4W",
     "m_SelectedPackage": {
-        "deviceId": "",
-        "name": "",
-        "processId": 0,
+        "deviceId": "RFCR30FRR4W",
+        "name": "com.DefaultCompany.com.unity.template.mobile2D",
+        "processId": 25190,
         "exited": false
     },
     "m_SelectedPriority": 0,
-    "m_KnownPackagesForSerialization": [],
+    "m_KnownPackagesForSerialization": [
+        {
+            "deviceId": "RFCR30FRR4W",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 3216,
+            "exited": true
+        },
+        {
+            "deviceId": "RFCR30FRR4W",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 9928,
+            "exited": true
+        },
+        {
+            "deviceId": "RFCR30FRR4W",
+            "name": "com.android.settings",
+            "processId": 20652,
+            "exited": false
+        },
+        {
+            "deviceId": "RFCR30FRR4W",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 14000,
+            "exited": false
+        },
+        {
+            "deviceId": "RFCR30FRR4W",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 15940,
+            "exited": false
+        },
+        {
+            "deviceId": "RFCR30FRR4W",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 16582,
+            "exited": false
+        },
+        {
+            "deviceId": "RFCR30FRR4W",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 17332,
+            "exited": false
+        },
+        {
+            "deviceId": "RFCR30FRR4W",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 18077,
+            "exited": false
+        },
+        {
+            "deviceId": "RFCR30FRR4W",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 19562,
+            "exited": false
+        },
+        {
+            "deviceId": "RFCR30FRR4W",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 21304,
+            "exited": false
+        },
+        {
+            "deviceId": "RFCR30FRR4W",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 22584,
+            "exited": false
+        },
+        {
+            "deviceId": "RFCR30FRR4W",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 23469,
+            "exited": false
+        },
+        {
+            "deviceId": "RFCR30FRR4W",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 24303,
+            "exited": false
+        },
+        {
+            "deviceId": "RFCR30FRR4W",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 25190,
+            "exited": false
+        }
+    ],
     "m_Tags": {
         "m_Entries": [
             {
@@ -41,9 +126,20 @@
         ]
     },
     "m_MemoryViewerState": {
-        "MemoryWindowHeight": 0.0,
-        "MemoryWindowWidth": 0.0,
-        "MemoryTypeEnabled": [],
+        "MemoryWindowHeight": 300.0,
+        "MemoryWindowWidth": 170.0,
+        "MemoryTypeEnabled": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+        ],
         "MemoryGroup": 1,
         "Behavior": 1
     },
