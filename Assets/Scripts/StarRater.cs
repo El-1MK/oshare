@@ -34,19 +34,23 @@ public class StarRater : MonoBehaviour
     }
 
     public void ColorRating(Cloth[] outfit){
-        Cloth[] coloredClothes = new Cloth[0];
+        Debug.Log("Outfit longeur "+outfit.Length);
+        List<Cloth> coloredClothes = new List<Cloth>();
 
         foreach(Cloth cloth in outfit){
-            if(Array.Exists(coloredClothes,  c => Math.Abs(c.red - cloth.red) <= 64 ||
-            Math.Abs(c.green - cloth.green) <= 64 ||
-            Math.Abs(c.blue - cloth.red) <= 64)){
-                coloredClothes[coloredClothes.Length] = cloth;
+            if(!coloredClothes.Exists(c => Math.Abs(c.red - cloth.red) <= 64/256 ||
+            Math.Abs(c.green - cloth.green) <= 64/256 ||
+            Math.Abs(c.blue - cloth.red) <= 64/256)){
+                coloredClothes.Add(cloth);
+                Debug.Log("Sprite de l'objet ajouté"+cloth.sprite);
             }
         }
 
-        if(coloredClothes.Length > 3){
-            this.SetStars(4 - coloredClothes.Length + 3);
-        }else if(coloredClothes.Length <= 1){
+        Debug.Log("Longueur de la liste couleurs différentes "+coloredClothes.Count);
+
+        if(coloredClothes.Count > 3){
+            this.SetStars(4 - coloredClothes.Count + 3);
+        }else if(coloredClothes.Count <= 1){
             this.SetStars(3);
         }else{
             this.SetStars(4);
@@ -72,47 +76,19 @@ public class StarRater : MonoBehaviour
 
 
     public void OriginalityRating(Cloth[] outfit){
-        float coef = 1.0f;
-        bool isFlowered = false;
-        bool isDotted = false;
-        bool isChecked = false;
-        bool isStripped = false;
+        string[] panos = new string[0];
 
         foreach(Cloth cloth in outfit){
-            if(cloth.sprite.Contains("necklace") ||cloth.sprite.Contains("cap") || cloth.sprite.Contains("blouse")
-            || cloth.sprite.Contains("scarf") || cloth.sprite.Contains("marcel") || cloth.sprite.Contains("longsock")
-            || cloth.sprite.Contains("jogging") )
-            coef += 0.2f;
-            if(cloth.sprite.Contains("tshirt") ||cloth.sprite.Contains("coat") || cloth.sprite.Contains("pants")
-            || cloth.sprite.Contains("longsleeve") )
-            coef -= 0.1f;
-            if((cloth.pattern == "flower" && !isFlowered) || (cloth.pattern == "dot" && !isDotted)){
-            coef +=0.3f;
+            if(Array.Exists(panos, pano => pano == cloth.style)){
+                panos[panos.Length]=cloth.style;
             }
-            if((cloth.pattern == "check" && !isChecked) || (cloth.pattern == "stripe" && !isStripped)){
-            coef +=0.1f;
-            }
-            if((cloth.red >= 223 && cloth.green >= 223 && cloth.blue >= 32) ||
-                (cloth.red >= 223 && (cloth.green >= 19 && cloth.green <= 83) && (cloth.green >= 172 && cloth.green <= 236))  ||
-                (cloth.red <= 32 && cloth.green >= 223 && cloth.blue <= 32)){
-            coef +=0.3f;
-            }
-            if((cloth.red >= 223 && cloth.green >= 223 && cloth.blue >= 32) ||
-                (cloth.red >= 223 && (cloth.green >= 19 && cloth.green <= 83) && (cloth.green >= 172 && cloth.green <= 236))  ||
-                (cloth.red <= 32 && cloth.green >= 223 && cloth.blue <= 32)){
-            coef +=0.3f;
-            }
-
-            float mean = (cloth.red + cloth.green + cloth.blue)/3;
-            if((cloth.red < (mean + 50) ||cloth.red > (mean - 50))||
-            (cloth.blue < (mean + 50) ||cloth.blue > (mean - 50))||
-            (cloth.green < (mean + 50) ||cloth.green > (mean - 50)) ){
-                coef -= 0.2f;
-            }
-
         }
-        int result = (int)Math.Floor(2.5f * coef);
-        this.SetStars(result >= 0 ? result : 0);
+
+        if(Array.Exists(panos,pano => pano == "basic")){
+            this.SetStars(4 - (panos.Length-2));
+        }else{
+            this.SetStars(4 - (panos.Length-1));
+        }
     }
 
     public void VibeRating(Cloth[] outfit){

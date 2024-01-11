@@ -109,31 +109,31 @@ public class AddCloth : MonoBehaviour, IDataPersistence
         List<Cloth> accessories = data.wardrobe.FindAll(c=>c.category == "accessory");
         for(int i=0;i<legwear.Count;i++)
         {
-            loadCloth( legwear[i].sprite,legwear[i].red,legwear[i].green,legwear[i].blue,legwear[i].albedo,legwear[i].category,legwear[i].pattern,i);
+            loadCloth( legwear[i].sprite,legwear[i].red,legwear[i].green,legwear[i].blue,legwear[i].albedo,legwear[i].category,legwear[i].pattern,legwear[i].style,i);
         }
         for(int i=0;i<tops.Count;i++)
         {
-            loadCloth( tops[i].sprite,tops[i].red,tops[i].green,tops[i].blue,tops[i].albedo,tops[i].category,tops[i].pattern,i,tops[i].extra);
+            loadCloth( tops[i].sprite,tops[i].red,tops[i].green,tops[i].blue,tops[i].albedo,tops[i].category,tops[i].pattern,tops[i].style,i,tops[i].extra);
         }
         for(int i=0;i<outerwear.Count;i++)
         {
-            loadCloth( outerwear[i].sprite,outerwear[i].red,outerwear[i].green,outerwear[i].blue,outerwear[i].albedo,outerwear[i].category,outerwear[i].pattern,i);
+            loadCloth( outerwear[i].sprite,outerwear[i].red,outerwear[i].green,outerwear[i].blue,outerwear[i].albedo,outerwear[i].category,outerwear[i].pattern,outerwear[i].style,i);
         }
         for(int i=0;i<shoes.Count;i++)
         {
-            loadCloth( shoes[i].sprite,shoes[i].red,shoes[i].green,shoes[i].blue,shoes[i].albedo,shoes[i].category,shoes[i].pattern,i);
+            loadCloth( shoes[i].sprite,shoes[i].red,shoes[i].green,shoes[i].blue,shoes[i].albedo,shoes[i].category,shoes[i].pattern,shoes[i].style,i);
         }
         for(int i=0;i<socks.Count;i++)
         {
-            loadCloth( socks[i].sprite,socks[i].red,socks[i].green,socks[i].blue,socks[i].albedo,socks[i].category,socks[i].pattern,i);
+            loadCloth( socks[i].sprite,socks[i].red,socks[i].green,socks[i].blue,socks[i].albedo,socks[i].category,socks[i].pattern,socks[i].style,i);
         }
         for(int i=0;i<headgear.Count;i++)
         {
-            loadCloth( headgear[i].sprite,headgear[i].red,headgear[i].green,headgear[i].blue,headgear[i].albedo,headgear[i].category,headgear[i].pattern,i);
+            loadCloth( headgear[i].sprite,headgear[i].red,headgear[i].green,headgear[i].blue,headgear[i].albedo,headgear[i].category,headgear[i].pattern,headgear[i].style,i);
         }
         for(int i=0;i<accessories.Count;i++)
         {
-            loadCloth( accessories[i].sprite,accessories[i].red,accessories[i].green,accessories[i].blue,accessories[i].albedo,accessories[i].category,accessories[i].pattern,i);
+            loadCloth( accessories[i].sprite,accessories[i].red,accessories[i].green,accessories[i].blue,accessories[i].albedo,accessories[i].category,accessories[i].pattern,accessories[i].style,i);
         }
     }
 
@@ -162,9 +162,17 @@ public class AddCloth : MonoBehaviour, IDataPersistence
         }
         newImage.color = imageCurrent.color;
         if(imageCurrent.sprite.ToString().Contains("pocket")){
-            wardrobe.Add(new Cloth(imageCurrent.sprite.ToString(),imageCurrent.color.r,imageCurrent.color.g,imageCurrent.color.b,imageCurrent.color.a,"top",currentPattern,"pocket"));
+            wardrobe.Add(new Cloth(imageCurrent.sprite.ToString(),imageCurrent.color.r,imageCurrent.color.g,imageCurrent.color.b,imageCurrent.color.a,"top",currentPattern,"basic","pocket"));
         }else{
-            wardrobe.Add(new Cloth(imageCurrent.sprite.ToString(),imageCurrent.color.r,imageCurrent.color.g,imageCurrent.color.b,imageCurrent.color.a,"top",currentPattern));
+            if(imageCurrent.sprite.ToString().Contains("marcel")){
+                wardrobe.Add(new Cloth(imageCurrent.sprite.ToString(),imageCurrent.color.r,imageCurrent.color.g,imageCurrent.color.b,imageCurrent.color.a,"top",currentPattern,"sporty"));
+            }else if(imageCurrent.sprite.ToString().Contains("blouse")){
+                wardrobe.Add(new Cloth(imageCurrent.sprite.ToString(),imageCurrent.color.r,imageCurrent.color.g,imageCurrent.color.b,imageCurrent.color.a,"top",currentPattern,"formal"));
+            }else if(imageCurrent.sprite.ToString().Contains("longsleeve")){
+                wardrobe.Add(new Cloth(imageCurrent.sprite.ToString(),imageCurrent.color.r,imageCurrent.color.g,imageCurrent.color.b,imageCurrent.color.a,"top",currentPattern,"basic"));
+            }else if(imageCurrent.sprite.ToString().Contains("tshirt")){
+                wardrobe.Add(new Cloth(imageCurrent.sprite.ToString(),imageCurrent.color.r,imageCurrent.color.g,imageCurrent.color.b,imageCurrent.color.a,"top",currentPattern,"basic"));
+            }
         }
 
         imageAddedToScene.transform.SetParent(topFloor.transform);
@@ -202,8 +210,15 @@ public class AddCloth : MonoBehaviour, IDataPersistence
                 newImage.rectTransform.sizeDelta = new Vector2(330,270);
             }
             newImage.color = imageCurrent.color;
-
-            wardrobe.Add(new Cloth(imageCurrent.sprite.ToString(),imageCurrent.color.r,imageCurrent.color.g,imageCurrent.color.b,imageCurrent.color.a,"legwear",currentPattern));
+            if(imageCurrent.sprite.ToString().Contains("pants")){
+                wardrobe.Add(new Cloth(imageCurrent.sprite.ToString(),imageCurrent.color.r,imageCurrent.color.g,imageCurrent.color.b,imageCurrent.color.a,"legwear",currentPattern,"formal"));
+            }else if(imageCurrent.sprite.ToString().Contains("jogging")){
+                wardrobe.Add(new Cloth(imageCurrent.sprite.ToString(),imageCurrent.color.r,imageCurrent.color.g,imageCurrent.color.b,imageCurrent.color.a,"legwear",currentPattern,"sporty"));
+            }else if(imageCurrent.sprite.ToString().Contains("jeans")){
+                wardrobe.Add(new Cloth(imageCurrent.sprite.ToString(),imageCurrent.color.r,imageCurrent.color.g,imageCurrent.color.b,imageCurrent.color.a,"legwear",currentPattern,"casual"));
+            }else if(imageCurrent.sprite.ToString().Contains("skirt")){
+                wardrobe.Add(new Cloth(imageCurrent.sprite.ToString(),imageCurrent.color.r,imageCurrent.color.g,imageCurrent.color.b,imageCurrent.color.a,"legwear",currentPattern,"basic"));
+            }
 
             imageAddedToScene.transform.SetParent(legwearFloor.transform);
             newImage.rectTransform.localScale = new Vector3(1f,1f,1f);
@@ -240,8 +255,15 @@ public class AddCloth : MonoBehaviour, IDataPersistence
             newImage.rectTransform.sizeDelta = new Vector2(425,600);
             newImage.color = imageCurrent.color;
 
-            wardrobe.Add(new Cloth(imageCurrent.sprite.ToString(),imageCurrent.color.r,imageCurrent.color.g,imageCurrent.color.b,imageCurrent.color.a,"outerwear",currentPattern));
-
+            if(imageCurrent.sprite.ToString().Contains("blazer")){
+                wardrobe.Add(new Cloth(imageCurrent.sprite.ToString(),imageCurrent.color.r,imageCurrent.color.g,imageCurrent.color.b,imageCurrent.color.a,"outerwear",currentPattern,"formal"));
+            }else if(imageCurrent.sprite.ToString().Contains("coat")){
+                wardrobe.Add(new Cloth(imageCurrent.sprite.ToString(),imageCurrent.color.r,imageCurrent.color.g,imageCurrent.color.b,imageCurrent.color.a,"outerwear",currentPattern,"basic"));
+            }else if(imageCurrent.sprite.ToString().Contains("sweat")){
+                wardrobe.Add(new Cloth(imageCurrent.sprite.ToString(),imageCurrent.color.r,imageCurrent.color.g,imageCurrent.color.b,imageCurrent.color.a,"outerwear",currentPattern,"casual"));
+            }else if(imageCurrent.sprite.ToString().Contains("turtleneck")){
+                wardrobe.Add(new Cloth(imageCurrent.sprite.ToString(),imageCurrent.color.r,imageCurrent.color.g,imageCurrent.color.b,imageCurrent.color.a,"outerwear",currentPattern,"formal"));
+            }
             imageAddedToScene.transform.SetParent(outerwearFloor.transform);
             newImage.rectTransform.localScale = new Vector3(1f,1f,1f);
             newImage.rectTransform.localPosition = new Vector3(currentCursorHoriz,currentCursorVert,0);
@@ -274,8 +296,13 @@ public class AddCloth : MonoBehaviour, IDataPersistence
             newImage.rectTransform.sizeDelta = new Vector2(540,260);
             newImage.color = imageCurrent.color;
 
-            wardrobe.Add(new Cloth(imageCurrent.sprite.ToString(),imageCurrent.color.r,imageCurrent.color.g,imageCurrent.color.b,imageCurrent.color.a,"shoe",currentPattern));
-
+            if(imageCurrent.sprite.ToString().Contains("sneaker")){
+                wardrobe.Add(new Cloth(imageCurrent.sprite.ToString(),imageCurrent.color.r,imageCurrent.color.g,imageCurrent.color.b,imageCurrent.color.a,"shoe",currentPattern,"sporty"));
+            }else if(imageCurrent.sprite.ToString().Contains("boot")){
+                wardrobe.Add(new Cloth(imageCurrent.sprite.ToString(),imageCurrent.color.r,imageCurrent.color.g,imageCurrent.color.b,imageCurrent.color.a,"shoe",currentPattern,"basic"));
+            }else if(imageCurrent.sprite.ToString().Contains("shoe")){
+                wardrobe.Add(new Cloth(imageCurrent.sprite.ToString(),imageCurrent.color.r,imageCurrent.color.g,imageCurrent.color.b,imageCurrent.color.a,"shoe",currentPattern,"formal"));
+            }
             imageAddedToScene.transform.SetParent(shoesFloor.transform);
             newImage.rectTransform.localScale = new Vector3(1f,1f,1f);
             newImage.rectTransform.localPosition = new Vector3(currentCursorHoriz,currentCursorVert,0);
@@ -313,8 +340,11 @@ public class AddCloth : MonoBehaviour, IDataPersistence
             }
             newImage.color = imageCurrent.color;
 
-            wardrobe.Add(new Cloth(imageCurrent.sprite.ToString(),imageCurrent.color.r,imageCurrent.color.g,imageCurrent.color.b,imageCurrent.color.a,"sock",currentPattern));
-
+            if(imageCurrent.sprite.ToString().Contains("longsock")){
+                wardrobe.Add(new Cloth(imageCurrent.sprite.ToString(),imageCurrent.color.r,imageCurrent.color.g,imageCurrent.color.b,imageCurrent.color.a,"sock",currentPattern,"basic"));
+            }else if(imageCurrent.sprite.ToString().Contains("sock")){
+                wardrobe.Add(new Cloth(imageCurrent.sprite.ToString(),imageCurrent.color.r,imageCurrent.color.g,imageCurrent.color.b,imageCurrent.color.a,"sock",currentPattern,"basic"));
+            }
             imageAddedToScene.transform.SetParent(socksFloor.transform);
             newImage.rectTransform.localScale = new Vector3(1f,1f,1f);
             newImage.rectTransform.localPosition = new Vector3(currentCursorHoriz,currentCursorVert,0);
@@ -347,8 +377,11 @@ public class AddCloth : MonoBehaviour, IDataPersistence
             newImage.rectTransform.sizeDelta = new Vector2(540,260);
             newImage.color = imageCurrent.color;
 
-            wardrobe.Add(new Cloth(imageCurrent.sprite.ToString(),imageCurrent.color.r,imageCurrent.color.g,imageCurrent.color.b,imageCurrent.color.a,"headgear",currentPattern));
-
+            if(imageCurrent.sprite.ToString().Contains("cap")){
+                wardrobe.Add(new Cloth(imageCurrent.sprite.ToString(),imageCurrent.color.r,imageCurrent.color.g,imageCurrent.color.b,imageCurrent.color.a,"headgear",currentPattern,"sporty"));
+            }else if(imageCurrent.sprite.ToString().Contains("hat")){
+                wardrobe.Add(new Cloth(imageCurrent.sprite.ToString(),imageCurrent.color.r,imageCurrent.color.g,imageCurrent.color.b,imageCurrent.color.a,"headgear",currentPattern,"casual"));
+            }
             imageAddedToScene.transform.SetParent(headgearFloor.transform);
             newImage.rectTransform.localScale = new Vector3(1f,1f,1f);
             newImage.rectTransform.localPosition = new Vector3(currentCursorHoriz,currentCursorVert,0);
@@ -387,8 +420,13 @@ public class AddCloth : MonoBehaviour, IDataPersistence
             }
             newImage.color = imageCurrent.color;
 
-            wardrobe.Add(new Cloth(imageCurrent.sprite.ToString(),imageCurrent.color.r,imageCurrent.color.g,imageCurrent.color.b,imageCurrent.color.a,"accessory",currentPattern));
-
+            if(imageCurrent.sprite.ToString().Contains("glasses")){
+                wardrobe.Add(new Cloth(imageCurrent.sprite.ToString(),imageCurrent.color.r,imageCurrent.color.g,imageCurrent.color.b,imageCurrent.color.a,"accessory",currentPattern,"basic"));
+            }else if(imageCurrent.sprite.ToString().Contains("necklace")){
+                wardrobe.Add(new Cloth(imageCurrent.sprite.ToString(),imageCurrent.color.r,imageCurrent.color.g,imageCurrent.color.b,imageCurrent.color.a,"accessory",currentPattern,"basic"));
+            }else if(imageCurrent.sprite.ToString().Contains("scarf")){
+                wardrobe.Add(new Cloth(imageCurrent.sprite.ToString(),imageCurrent.color.r,imageCurrent.color.g,imageCurrent.color.b,imageCurrent.color.a,"accessory",currentPattern,"basic"));
+            }
             imageAddedToScene.transform.SetParent(accessoriesFloor.transform);
             newImage.rectTransform.localScale = new Vector3(1f,1f,1f);
             newImage.rectTransform.localPosition = new Vector3(currentCursorHoriz,currentCursorVert,0);
@@ -409,7 +447,7 @@ public class AddCloth : MonoBehaviour, IDataPersistence
     }
     }
 
-    public void loadCloth(string image,float red,float green,float blue,float albedo,string category,string pattern, int index,string extra = null)
+    public void loadCloth(string image,float red,float green,float blue,float albedo,string category,string pattern,string style, int index,string extra = null)
     {
         if(category == "top"){
         int nbRow = (topCounter-(topCounter - index))/3;

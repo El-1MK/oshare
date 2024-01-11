@@ -443,7 +443,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 11
+          m_IntArgument: 12
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1378,6 +1378,7 @@ MonoBehaviour:
   socksCounter: 0
   headgearCounter: 0
   accessoriesCounter: 0
+  wardrobe: []
   imageCurrent: {fileID: 516546300}
   topFloor: {fileID: 1254511518}
   legwearFloor: {fileID: 1612033353}
@@ -1778,7 +1779,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 13
+          m_IntArgument: 14
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2739,6 +2740,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ac78a2c1e3cfac647bb52f043e42b0d9, type: 3}
   - {fileID: 21300000, guid: 117f74b24aef2154fb3454dd95c8adac, type: 3}
   - {fileID: 21300000, guid: f709f20f7db26124da153c3698a1cb93, type: 3}
+  - {fileID: 21300000, guid: bda1bdec54f751149ac04b27f4040578, type: 3}
   - {fileID: 21300000, guid: f74642ab74d24fb4c8c8c90dcd2881a7, type: 3}
   - {fileID: 21300000, guid: ad853f5968ca36d4eb7f3b3c6a5549dc, type: 3}
   - {fileID: 21300000, guid: 8e8dcc676d074a34ea9bf97a31a46a71, type: 3}
@@ -2753,7 +2755,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0654c5fb3cdfb4b4f884a49514970636, type: 3}
   image: {fileID: 516546300}
   adder: {fileID: 382646982}
-  NBMAX_CLOTHES: 21
+  NBMAX_CLOTHES: 22
 --- !u!4 &604432100
 Transform:
   m_ObjectHideFlags: 0
@@ -5698,7 +5700,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 17
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -6811,7 +6813,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 18
+          m_IntArgument: 19
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

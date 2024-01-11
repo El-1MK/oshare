@@ -27,8 +27,10 @@ public class Cloth
     public string category;
     public string pattern;
     public string extra;
+    //Style can be basic, casual, formal, sporty
+    public string style;
 
-    public Cloth(string sprite, float r, float g, float b, float a, string categ, string patt, string ext = "none")
+    public Cloth(string sprite, float r, float g, float b, float a, string categ, string patt, string sty, string ext = "none")
     {
         this.sprite = sprite;
         red = r;
@@ -38,5 +40,6 @@ public class Cloth
         category = categ;
         pattern = patt;
         extra = ext;
+        style = sty;
     }
 }
