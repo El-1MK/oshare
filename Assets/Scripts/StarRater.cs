@@ -87,18 +87,24 @@ public class StarRater : MonoBehaviour
 
 
     public void OriginalityRating(Cloth[] outfit){
-        string[] panos = new string[0];
+        List<string> panos = new List<string>();
 
         foreach(Cloth cloth in outfit){
-            if(Array.Exists(panos, pano => pano == cloth.style)){
-                panos[panos.Length]=cloth.style;
+            if(!panos.Exists(pano => pano == cloth.style)){
+                Debug.Log(cloth.sprite);
+                panos.Add(cloth.style);
             }
         }
 
-        if(Array.Exists(panos,pano => pano == "basic")){
-            this.SetStars(4 - (panos.Length-2));
+
+        if(panos.Exists(pano => pano == "basic")&&panos.Count >= 2){
+                Debug.Log("OUI");
+                Debug.Log(panos.Count);
+                this.SetStars(4 - (panos.Count -2));
+        }else if(panos.Count == 1){
+            this.SetStars(4);
         }else{
-            this.SetStars(4 - (panos.Length-1));
+            this.SetStars(4 - (panos.Count));
         }
     }
 
