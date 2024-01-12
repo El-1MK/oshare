@@ -37,10 +37,10 @@ public class StarRater : MonoBehaviour
         List<Cloth> coloredClothes = new List<Cloth>();
 
         foreach(Cloth cloth in outfit){
-            if(!coloredClothes.Exists(c => {
+            if(!coloredClothes.Exists(c =>
             Math.Abs(c.red - cloth.red) <= 64/256f &&
             Math.Abs(c.green - cloth.green) <= 64/256f &&
-            Math.Abs(c.blue - cloth.blue) <= 64/256f;})){
+            Math.Abs(c.blue - cloth.blue) <= 64/256f)){
                 coloredClothes.Add(cloth);
             }
         }
@@ -58,18 +58,30 @@ public class StarRater : MonoBehaviour
 
 
     public void PatternRating(Cloth[] outfit){
-        string[] patterns = new string[0];
+        List<string> patterns = new List<string>();
 
         foreach(Cloth cloth in outfit){
-            if(Array.Exists(patterns, pat => pat == cloth.pattern)){
-                patterns[patterns.Length]=cloth.pattern;
+            if(!patterns.Exists(pat => pat == cloth.pattern)){
+                Debug.Log(cloth.sprite);
+                patterns.Add(cloth.pattern);
             }
         }
 
-        if(Array.Exists(patterns,pat => pat == "plain")){
-            this.SetStars(4 - (patterns.Length-2));
+        Debug.Log("Pattern Count "+patterns.Count);
+        foreach(string s in patterns){
+            Debug.Log(s);
+        }
+
+        if(patterns.Exists(pat => pat == "plain")){
+            if(patterns.Count == 1){
+                this.SetStars(4 - (patterns.Count));
+            }else if(patterns.Count == 2){
+                this.SetStars(4);
+            }else{
+                this.SetStars(4 - (patterns.Count));
+            }
         }else{
-            this.SetStars(4 - (patterns.Length-1));
+            this.SetStars(4 - (patterns.Count));
         }
     }
 

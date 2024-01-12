@@ -421,9 +421,9 @@ public class AddCloth : MonoBehaviour, IDataPersistence
             newImage.color = imageCurrent.color;
 
             if(imageCurrent.sprite.ToString().Contains("glasses")){
-                wardrobe.Add(new Cloth(imageCurrent.sprite.ToString(),imageCurrent.color.r,imageCurrent.color.g,imageCurrent.color.b,imageCurrent.color.a,"accessory",currentPattern,"basic"));
+                wardrobe.Add(new Cloth(imageCurrent.sprite.ToString(),imageCurrent.color.r,imageCurrent.color.g,imageCurrent.color.b,imageCurrent.color.a,"accessory","plain","basic"));
             }else if(imageCurrent.sprite.ToString().Contains("necklace")){
-                wardrobe.Add(new Cloth(imageCurrent.sprite.ToString(),imageCurrent.color.r,imageCurrent.color.g,imageCurrent.color.b,imageCurrent.color.a,"accessory",currentPattern,"basic"));
+                wardrobe.Add(new Cloth(imageCurrent.sprite.ToString(),imageCurrent.color.r,imageCurrent.color.g,imageCurrent.color.b,imageCurrent.color.a,"accessory","plain","basic"));
             }else if(imageCurrent.sprite.ToString().Contains("scarf")){
                 wardrobe.Add(new Cloth(imageCurrent.sprite.ToString(),imageCurrent.color.r,imageCurrent.color.g,imageCurrent.color.b,imageCurrent.color.a,"accessory",currentPattern,"basic"));
             }
@@ -695,7 +695,7 @@ public class AddCloth : MonoBehaviour, IDataPersistence
 
         imageAddedToScene = new GameObject();
         Image newImage = imageAddedToScene.AddComponent<Image>();
-        if(image.Contains("sock")){
+        if(image.Contains("longsock")){
         if(pattern == "plain")newImage.sprite = availableLongsocks[0];
         if(pattern == "stripe")newImage.sprite = availableLongsocks[1];
         if(pattern == "dot")newImage.sprite = availableLongsocks[2];
