@@ -62,14 +62,8 @@ public class StarRater : MonoBehaviour
 
         foreach(Cloth cloth in outfit){
             if(!patterns.Exists(pat => pat == cloth.pattern)){
-                Debug.Log(cloth.sprite);
                 patterns.Add(cloth.pattern);
             }
-        }
-
-        Debug.Log("Pattern Count "+patterns.Count);
-        foreach(string s in patterns){
-            Debug.Log(s);
         }
 
         if(patterns.Exists(pat => pat == "plain")){
@@ -91,15 +85,12 @@ public class StarRater : MonoBehaviour
 
         foreach(Cloth cloth in outfit){
             if(!panos.Exists(pano => pano == cloth.style)){
-                Debug.Log(cloth.sprite);
                 panos.Add(cloth.style);
             }
         }
 
 
         if(panos.Exists(pano => pano == "basic")&&panos.Count >= 2){
-                Debug.Log("OUI");
-                Debug.Log(panos.Count);
                 this.SetStars(4 - (panos.Count -2));
         }else if(panos.Count == 1){
             this.SetStars(4);
@@ -110,25 +101,73 @@ public class StarRater : MonoBehaviour
 
     public void VibeRating(Cloth[] outfit){
         int nbStars = 0;
+
+        //Vibe set 1
         if(Array.Exists(outfit, cloth => cloth.sprite.Contains("blouse") &&
             cloth.pattern == "flower" &&
-            (cloth.red >= 223 && (cloth.green >= 19 && cloth.green <= 83) && (cloth.green >= 172 && cloth.green <= 236)))){
+            (cloth.red >= 223/256f && (cloth.green >= 0f && cloth.green <= 83/256f) && (cloth.blue >= 172/256f && cloth.blue <= 236/256f)))){
                 nbStars +=1;
         }
 
         if(Array.Exists(outfit, cloth => cloth.sprite.Contains("hat") &&
             cloth.pattern == "plain" &&
-            (cloth.red >= 223 && cloth.green >= 223  && cloth.green >= 223 ))){
+            (cloth.red <= 32/256f && cloth.green <= 32/256f  && cloth.blue <= 32/256f ))){
                 nbStars +=1;
         }
 
         if(Array.Exists(outfit, cloth => cloth.sprite.Contains("blazer") &&
             cloth.pattern == "check" &&
-            (cloth.red >= 223 && cloth.green <= 32  && cloth.green <= 32 ))){
+            (cloth.red >= 223/256f && cloth.green <= 32/256f  && cloth.blue <= 32/256f ))){
+                nbStars +=1;
+        }
+
+        //Vibe set 2
+
+        if(Array.Exists(outfit, cloth => cloth.sprite.Contains("cap") &&
+            cloth.pattern == "plain" &&
+            ((cloth.red >= 42/256f && cloth.red <= 106/256f) && (cloth.green >= 31/256f && cloth.green <= 95/256f)  && cloth.blue <= 41/256f ))){
+                nbStars +=1;
+        }
+
+        if(Array.Exists(outfit, cloth => cloth.sprite.Contains("sneaker") &&
+            cloth.pattern == "plain" &&
+            ((cloth.red >= 41/256f && cloth.red <= 103/256f) && (cloth.green >= 41/256f && cloth.green <= 103/256f)  && cloth.blue <= 41/256f ))){
+                nbStars +=1;
+        }
+
+        if(Array.Exists(outfit, cloth => cloth.sprite.Contains("jeans") &&
+            cloth.pattern == "plain" &&
+            ((cloth.red <= 60/256f) && (cloth.green <= 61/256f)  && cloth.blue <= 47/256f ))){
+                nbStars +=1;
+        }
+
+        if(Array.Exists(outfit, cloth => cloth.sprite.Contains("blouse") &&
+            cloth.pattern == "check" &&
+            (cloth.red >= 223/256f && cloth.green <= 32/256f  && cloth.blue <= 32/256f ))){
+                nbStars +=1;
+        }
+
+        //Vibe set 3
+
+        if(Array.Exists(outfit, cloth => cloth.sprite.Contains("pants") &&
+            cloth.pattern == "plain" &&
+            (cloth.red >= 223/256f && cloth.green >= 223/256f  && cloth.blue >= 223/256f ))){
+                nbStars +=1;
+        }
+
+        if(Array.Exists(outfit, cloth => cloth.sprite.Contains("blazer") &&
+            cloth.pattern == "plain" &&
+            (cloth.red >= 223/256f && cloth.green >= 223/256f  && cloth.blue >= 223/256f ))){
+                nbStars +=1;
+        }
+
+        if(Array.Exists(outfit, cloth => cloth.sprite.Contains("turtleneck") &&
+            cloth.pattern == "stripe" &&
+            (cloth.red >= 223/256f && cloth.green >= 223/256f  && cloth.blue >= 223/256f ))){
                 nbStars +=1;
         }
 
 
-        this.SetStars(nbStars);
+        this.SetStars(nbStars < 5 ? nbStars : 4);
     }
 }

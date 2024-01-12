@@ -275,10 +275,10 @@ public class AddCloth : MonoBehaviour, IDataPersistence
 
             if(outerwearCounter%3 == 0){
                 RectTransform outerwearPanelRect = imageAddedToScene.transform.parent.gameObject.GetComponent<RectTransform>();
-                outerwearPanelRect.sizeDelta = new Vector2(outerwearPanelRect.rect.width,outerwearPanelRect.rect.height + 550);
+                outerwearPanelRect.sizeDelta = new Vector2(outerwearPanelRect.rect.width,outerwearPanelRect.rect.height + 650);
                RectTransform wardrobePanelRect = imageAddedToScene.transform.parent.gameObject.transform.parent.gameObject.GetComponent<RectTransform>();
-               wardrobePanelRect.sizeDelta = new Vector2(wardrobePanelRect.rect.width,wardrobePanelRect.rect.height + 550);
-                outerwearHeight+=550;
+               wardrobePanelRect.sizeDelta = new Vector2(wardrobePanelRect.rect.width,wardrobePanelRect.rect.height + 650);
+                outerwearHeight+=650;
             }
             outerwearCounter++;
 
