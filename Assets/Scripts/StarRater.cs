@@ -34,26 +34,25 @@ public class StarRater : MonoBehaviour
     }
 
     public void ColorRating(Cloth[] outfit){
-        Debug.Log("Outfit longeur "+outfit.Length);
         List<Cloth> coloredClothes = new List<Cloth>();
 
         foreach(Cloth cloth in outfit){
-            if(!coloredClothes.Exists(c => Math.Abs(c.red - cloth.red) <= 64/256 ||
-            Math.Abs(c.green - cloth.green) <= 64/256 ||
-            Math.Abs(c.blue - cloth.red) <= 64/256)){
+            if(!coloredClothes.Exists(c => {
+            Math.Abs(c.red - cloth.red) <= 64/256f &&
+            Math.Abs(c.green - cloth.green) <= 64/256f &&
+            Math.Abs(c.blue - cloth.blue) <= 64/256f;})){
                 coloredClothes.Add(cloth);
-                Debug.Log("Sprite de l'objet ajouté"+cloth.sprite);
             }
         }
 
-        Debug.Log("Longueur de la liste couleurs différentes "+coloredClothes.Count);
-
-        if(coloredClothes.Count > 3){
-            this.SetStars(4 - coloredClothes.Count + 3);
-        }else if(coloredClothes.Count <= 1){
-            this.SetStars(3);
-        }else{
+        if(coloredClothes.Count == 3){
             this.SetStars(4);
+        }else if(coloredClothes.Count <= 1){
+            this.SetStars(1);
+        }else if(coloredClothes.Count == 2){
+            this.SetStars(4);
+        }else{
+            this.SetStars(coloredClothes.Count <= 6 ? 4 - coloredClothes.Count + 2 : 0);
         }
     }
 
