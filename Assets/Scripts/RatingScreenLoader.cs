@@ -5,13 +5,13 @@ using UnityEngine;
 public class RatingScreenLoader : MonoBehaviour
 {
     Vector3 [] scalings = new Vector3 [] {
-        new Vector3(0.09f, 0.09f, 0f),
-        new Vector3(0.2f, 0.2f, 0f),
-        new Vector3(0.15f, 0.15f, 0f),
-        new Vector3(0.09f, 0.09f, 0f),
-        new Vector3(0.2f, 0.2f, 0f),
-        new Vector3(0.17f, 0.15f, 0f),
-        new Vector3(0.15f, 0.15f, 0f),
+        new Vector3(0.35f, 0.35f, 0f),
+        new Vector3(1.7f, 1.6f, 0f),
+        new Vector3(0.4f, 0.4f, 0f),
+        new Vector3(0.4f, 0.4f, 0f),
+        new Vector3(1.5f, 1.5f, 0f),
+        new Vector3(1.5f, 1.2f, 0f),
+        new Vector3(0.4f, 0.4f, 0f),
     };
 
     public List<SlideMenuSelection> selectors;

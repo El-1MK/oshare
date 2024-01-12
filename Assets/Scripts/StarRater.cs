@@ -12,7 +12,6 @@ public class StarRater : MonoBehaviour
     {
         nbStars = 0;
         rand = new System.Random();
-        foreach (Transform child in transform) child.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -22,9 +21,10 @@ public class StarRater : MonoBehaviour
     }
     
     public void SetStars(int newNbStars) {
-      transform.GetChild(nbStars).gameObject.SetActive(false);
+      foreach (Transform child in transform) child.gameObject.SetActive(false);
+      //transform.GetChild(nbStars).gameObject.SetActive(false);
       nbStars = newNbStars % 5;
-      Debug.Log(nbStars);
+      Debug.Log("child"+nbStars+" devient true");
       transform.GetChild(nbStars).gameObject.SetActive(true);
     }
 
