@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class StarRater : MonoBehaviour
 {
-    private int nbStars;
+    public int nbStars;
     private System.Random rand;
     // Start is called before the first frame update
     void Start()
@@ -24,7 +24,6 @@ public class StarRater : MonoBehaviour
       foreach (Transform child in transform) child.gameObject.SetActive(false);
       //transform.GetChild(nbStars).gameObject.SetActive(false);
       nbStars = newNbStars % 5;
-      Debug.Log("child"+nbStars+" devient true");
       transform.GetChild(nbStars).gameObject.SetActive(true);
     }
 

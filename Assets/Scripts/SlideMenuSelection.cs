@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class SlideMenuSelection : MonoBehaviour
 {
     private int currentItem;
+    public int nbItems;
 
     void Start()
     {
@@ -14,7 +15,7 @@ public class SlideMenuSelection : MonoBehaviour
 
     public void ChangeItem(int _change)
     {
-        int nbItems = transform.childCount;
+        nbItems = transform.childCount;
         transform.GetChild(currentItem).gameObject.SetActive(false);
         currentItem += _change;
         currentItem = (currentItem%nbItems + nbItems)%nbItems;
@@ -25,6 +26,7 @@ public class SlideMenuSelection : MonoBehaviour
     {
         foreach (Transform child in transform) child.gameObject.SetActive(false);
         if (transform.childCount > 0) transform.GetChild(0).gameObject.SetActive(true);
+        nbItems = transform.childCount;
 
     }
 

@@ -34,4 +34,15 @@ public class RatingManager : MonoBehaviour
         raters[2].OriginalityRating(outfit);
         raters[3].VibeRating(outfit);
     }
+
+    public int GetGlobalNote()
+    {
+        int res = 0;
+        foreach(StarRater starRater in raters)
+        {
+            res+=starRater.nbStars;
+        }
+
+        return res;
+    }
 }
