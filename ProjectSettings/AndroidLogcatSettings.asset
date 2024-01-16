@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "RFCR30FRR4W",
         "name": "com.DefaultCompany.com.unity.template.mobile2D",
-        "processId": 25190,
+        "processId": 23447,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -11,85 +11,49 @@
         {
             "deviceId": "RFCR30FRR4W",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 3216,
-            "exited": true
-        },
-        {
-            "deviceId": "RFCR30FRR4W",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 9928,
-            "exited": true
-        },
-        {
-            "deviceId": "RFCR30FRR4W",
-            "name": "com.android.settings",
-            "processId": 20652,
-            "exited": false
-        },
-        {
-            "deviceId": "RFCR30FRR4W",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 14000,
-            "exited": false
-        },
-        {
-            "deviceId": "RFCR30FRR4W",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 15940,
-            "exited": false
-        },
-        {
-            "deviceId": "RFCR30FRR4W",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 16582,
-            "exited": false
-        },
-        {
-            "deviceId": "RFCR30FRR4W",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 17332,
-            "exited": false
-        },
-        {
-            "deviceId": "RFCR30FRR4W",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 18077,
-            "exited": false
-        },
-        {
-            "deviceId": "RFCR30FRR4W",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 19562,
-            "exited": false
-        },
-        {
-            "deviceId": "RFCR30FRR4W",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 21304,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "RFCR30FRR4W",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 22584,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "RFCR30FRR4W",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 23469,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "RFCR30FRR4W",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 24303,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "RFCR30FRR4W",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 25190,
+            "exited": true
+        },
+        {
+            "deviceId": "RFCR30FRR4W",
+            "name": "com.android.settings",
+            "processId": 8859,
+            "exited": false
+        },
+        {
+            "deviceId": "RFCR30FRR4W",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 17734,
+            "exited": false
+        },
+        {
+            "deviceId": "RFCR30FRR4W",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 23447,
             "exited": false
         }
     ],
