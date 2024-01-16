@@ -8,10 +8,10 @@ public class RatingScreenLoader : MonoBehaviour
         new Vector3(0.4f, 0.4f, 0f),
         new Vector3(1.9f, 1.8f, 0f),
         new Vector3(0.5f, 0.5f, 0f),
-        new Vector3(0.6f, 0.6f, 0f),
-        new Vector3(1.7f, 1.7f, 0f),
+        new Vector3(0.7f, 0.7f, 0f),
+        new Vector3(2.3f, 2.3f, 0f),
         new Vector3(2.3f, 1.8f, 0f),
-        new Vector3(1.1f, 1.1f, 0f),
+        new Vector3(1.3f, 1.3f, 0f),
     };
 
     public List<SlideMenuSelection> selectors;

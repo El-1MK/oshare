@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "RFCR30FRR4W",
         "name": "com.DefaultCompany.com.unity.template.mobile2D",
-        "processId": 23447,
+        "processId": 23017,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -54,6 +54,48 @@
             "deviceId": "RFCR30FRR4W",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 23447,
+            "exited": false
+        },
+        {
+            "deviceId": "RFCR30FRR4W",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 27546,
+            "exited": false
+        },
+        {
+            "deviceId": "RFCR30FRR4W",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 28947,
+            "exited": true
+        },
+        {
+            "deviceId": "RFCR30FRR4W",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 11355,
+            "exited": false
+        },
+        {
+            "deviceId": "RFCR30FRR4W",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 13011,
+            "exited": false
+        },
+        {
+            "deviceId": "RFCR30FRR4W",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 15256,
+            "exited": false
+        },
+        {
+            "deviceId": "RFCR30FRR4W",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 20064,
+            "exited": false
+        },
+        {
+            "deviceId": "RFCR30FRR4W",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 23017,
             "exited": false
         }
     ],

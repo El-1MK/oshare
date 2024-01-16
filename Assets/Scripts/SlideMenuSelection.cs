@@ -41,7 +41,7 @@ public class SlideMenuSelection : MonoBehaviour
             rect.anchorMax = new Vector2(0.5f, 0.5f);
             rect.pivot = new Vector2(0.5f, 0.5f);
             if(image.sprite.ToString().Contains("longsock")){
-                rect.localScale = new Vector3(1.2f, 1f, 0f);
+                rect.localScale = new Vector3(1.1f, 1.1f, 0f);
             }else if(image.sprite.ToString().Contains("scarf")){
                 rect.localScale = new Vector3(0.8f, 0.8f, 0f);
             }else{

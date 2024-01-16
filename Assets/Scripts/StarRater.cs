@@ -36,7 +36,7 @@ public class StarRater : MonoBehaviour
         List<Cloth> coloredClothes = new List<Cloth>();
 
         foreach(Cloth cloth in outfit){
-            if(!coloredClothes.Exists(c =>
+            if(cloth != null && !coloredClothes.Exists(c =>
             Math.Abs(c.red - cloth.red) <= 64/256f &&
             Math.Abs(c.green - cloth.green) <= 64/256f &&
             Math.Abs(c.blue - cloth.blue) <= 64/256f)){
@@ -60,7 +60,7 @@ public class StarRater : MonoBehaviour
         List<string> patterns = new List<string>();
 
         foreach(Cloth cloth in outfit){
-            if(!patterns.Exists(pat => pat == cloth.pattern)){
+            if(cloth != null && !patterns.Exists(pat => pat == cloth.pattern)){
                 patterns.Add(cloth.pattern);
             }
         }
@@ -83,7 +83,7 @@ public class StarRater : MonoBehaviour
         List<string> panos = new List<string>();
 
         foreach(Cloth cloth in outfit){
-            if(!panos.Exists(pano => pano == cloth.style)){
+            if(cloth != null && !panos.Exists(pano => pano == cloth.style)){
                 panos.Add(cloth.style);
             }
         }
@@ -102,19 +102,19 @@ public class StarRater : MonoBehaviour
         int nbStars = 0;
 
         //Vibe set 1
-        if(Array.Exists(outfit, cloth => cloth.sprite.Contains("blouse") &&
+        if(Array.Exists(outfit, cloth => cloth != null && cloth.sprite.Contains("blouse") &&
             cloth.pattern == "flower" &&
             (cloth.red >= 223/256f && (cloth.green >= 0f && cloth.green <= 83/256f) && (cloth.blue >= 172/256f && cloth.blue <= 236/256f)))){
                 nbStars +=1;
         }
 
-        if(Array.Exists(outfit, cloth => cloth.sprite.Contains("hat") &&
+        if(Array.Exists(outfit, cloth => cloth != null && cloth.sprite.Contains("hat") &&
             cloth.pattern == "plain" &&
             (cloth.red <= 32/256f && cloth.green <= 32/256f  && cloth.blue <= 32/256f ))){
                 nbStars +=1;
         }
 
-        if(Array.Exists(outfit, cloth => cloth.sprite.Contains("blazer") &&
+        if(Array.Exists(outfit, cloth => cloth != null && cloth.sprite.Contains("blazer") &&
             cloth.pattern == "check" &&
             (cloth.red >= 223/256f && cloth.green <= 32/256f  && cloth.blue <= 32/256f ))){
                 nbStars +=1;
@@ -122,25 +122,25 @@ public class StarRater : MonoBehaviour
 
         //Vibe set 2
 
-        if(Array.Exists(outfit, cloth => cloth.sprite.Contains("cap") &&
+        if(Array.Exists(outfit, cloth => cloth != null && cloth.sprite.Contains("cap") &&
             cloth.pattern == "plain" &&
             ((cloth.red >= 42/256f && cloth.red <= 106/256f) && (cloth.green >= 31/256f && cloth.green <= 95/256f)  && cloth.blue <= 41/256f ))){
                 nbStars +=1;
         }
 
-        if(Array.Exists(outfit, cloth => cloth.sprite.Contains("sneaker") &&
+        if(Array.Exists(outfit, cloth => cloth != null && cloth.sprite.Contains("sneaker") &&
             cloth.pattern == "plain" &&
             ((cloth.red >= 41/256f && cloth.red <= 103/256f) && (cloth.green >= 41/256f && cloth.green <= 103/256f)  && cloth.blue <= 41/256f ))){
                 nbStars +=1;
         }
 
-        if(Array.Exists(outfit, cloth => cloth.sprite.Contains("jeans") &&
+        if(Array.Exists(outfit, cloth => cloth != null && cloth.sprite.Contains("jeans") &&
             cloth.pattern == "plain" &&
             ((cloth.red <= 60/256f) && (cloth.green <= 61/256f)  && cloth.blue <= 47/256f ))){
                 nbStars +=1;
         }
 
-        if(Array.Exists(outfit, cloth => cloth.sprite.Contains("blouse") &&
+        if(Array.Exists(outfit, cloth => cloth != null && cloth.sprite.Contains("blouse") &&
             cloth.pattern == "check" &&
             (cloth.red >= 223/256f && cloth.green <= 32/256f  && cloth.blue <= 32/256f ))){
                 nbStars +=1;
@@ -148,19 +148,19 @@ public class StarRater : MonoBehaviour
 
         //Vibe set 3
 
-        if(Array.Exists(outfit, cloth => cloth.sprite.Contains("pants") &&
+        if(Array.Exists(outfit, cloth => cloth != null && cloth.sprite.Contains("pants") &&
             cloth.pattern == "plain" &&
             (cloth.red >= 223/256f && cloth.green >= 223/256f  && cloth.blue >= 223/256f ))){
                 nbStars +=1;
         }
 
-        if(Array.Exists(outfit, cloth => cloth.sprite.Contains("blazer") &&
+        if(Array.Exists(outfit, cloth => cloth != null && cloth.sprite.Contains("blazer") &&
             cloth.pattern == "plain" &&
             (cloth.red >= 223/256f && cloth.green >= 223/256f  && cloth.blue >= 223/256f ))){
                 nbStars +=1;
         }
 
-        if(Array.Exists(outfit, cloth => cloth.sprite.Contains("turtleneck") &&
+        if(Array.Exists(outfit, cloth => cloth != null && cloth.sprite.Contains("turtleneck") &&
             cloth.pattern == "stripe" &&
             (cloth.red >= 223/256f && cloth.green >= 223/256f  && cloth.blue >= 223/256f ))){
                 nbStars +=1;
